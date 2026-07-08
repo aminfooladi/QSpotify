@@ -2,7 +2,9 @@
 
 Account::Account() : id(0), role(Role::Listener) {}
 
-Account::Account(int id, QString fullName, QString userName, QString biography, QString password, Role role, QString profilePhoto)
+Account::Account(int id, QString fullName, QString userName,
+                 QString biography, QString password, Role role,
+                 QString profilePhoto)
     : id(id), fullName(fullName), userName(userName),
     biography(biography), password(password), role(role),
     profilePhoto(profilePhoto) {}

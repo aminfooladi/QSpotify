@@ -8,12 +8,18 @@ CONFIG += c++17
 
 SOURCES += \
     account.cpp \
+    album.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    playlist.cpp \
+    song.cpp
 
 HEADERS += \
     account.h \
-    mainwindow.h
+    album.h \
+    mainwindow.h \
+    playlist.h \
+    song.h
 
 FORMS += \
     mainwindow.ui
