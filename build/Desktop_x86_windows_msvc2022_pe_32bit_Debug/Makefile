@@ -420,6 +420,7 @@ Makefile: ..\..\QSpotify.pro C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\win32-msvc\qmak
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\qt_config.prf \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\win32-msvc\qmake.conf \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\exclusive_builds.prf \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\common\msvc-version.conf \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\toolchain.prf \
@@ -450,7 +451,6 @@ Makefile: ..\..\QSpotify.pro C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\win32-msvc\qmak
 		C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Gui.prl \
 		C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Core.prl \
 		C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6EntryPoint.prl \
-		.qmake.stash \
 		C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\build_pass.prf \
 		C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Widgetsd.prl \
 		C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Guid.prl \
@@ -793,6 +793,7 @@ C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\qt_functions.prf:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\qt_config.prf:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\win32-msvc\qmake.conf:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\spec_post.prf:
+.qmake.stash:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\exclusive_builds.prf:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\common\msvc-version.conf:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\toolchain.prf:
@@ -823,7 +824,6 @@ C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Widgets.prl:
 C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Gui.prl:
 C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Core.prl:
 C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6EntryPoint.prl:
-.qmake.stash:
 C:\Qt\Qt\6.11.1\msvc2022_64\mkspecs\features\build_pass.prf:
 C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Widgetsd.prl:
 C:\Qt\Qt\6.11.1\msvc2022_64\lib\Qt6Guid.prl:

@@ -1,9 +1,9 @@
 #ifndef LISTENERREPOSITORY_H
 #define LISTENERREPOSITORY_H
 
-#include "abstractrepository.h"
+#include "accountrepository.h"
 
-class ListenerRepository : public AbstractRepository
+class ListenerRepository : public AccountRepository
 {
 public:
     ListenerRepository();

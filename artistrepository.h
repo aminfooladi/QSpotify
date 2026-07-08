@@ -1,9 +1,9 @@
 #ifndef ARTISTREPOSITORY_H
 #define ARTISTREPOSITORY_H
 
-#include "abstractrepository.h"
+#include "accountrepository.h"
 
-class ArtistRepository : public AbstractRepository
+class ArtistRepository : public AccountRepository
 {
 public:
     ArtistRepository();
