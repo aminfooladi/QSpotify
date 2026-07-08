@@ -9,7 +9,7 @@ private:
     int id;
     QString name;
     int artistId;
-    QString cover;         // امتیازی
+    QString cover;
 
 public:
     Album();
