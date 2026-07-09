@@ -16,6 +16,8 @@ public:
     virtual int save(const Album& temp) override ;
     virtual optional<Album> search(int ID) override ;
     virtual bool remove(int ID) override ;
+
+    vector<Album> getAlbums(int artistID) ;
 };
 
 #endif // ALBUMREPOSITORY_H

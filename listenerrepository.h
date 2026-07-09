@@ -7,6 +7,8 @@ class ListenerRepository : public AccountRepository
 {
 public:
     ListenerRepository();
+
+    virtual optional<Account>searchByUserName(QString userName) override ;
 };
 
 #endif // LISTENERREPOSITORY_H

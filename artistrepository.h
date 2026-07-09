@@ -7,6 +7,8 @@ class ArtistRepository : public AccountRepository
 {
 public:
     ArtistRepository();
+
+    virtual optional<Account>searchByUserName(QString userName) override ;
 };
 
 #endif // ARTISTREPOSITORY_H

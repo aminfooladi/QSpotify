@@ -8,7 +8,7 @@
 
 class AccountRepository : public AbstractRepository<Account>
 {
-private:
+protected:
     std::vector<Account> accounts;
 public:
     AccountRepository();
@@ -16,6 +16,8 @@ public:
     virtual int save(const Account& temp) override ;
     virtual optional<Account> search(int ID) override ;
     virtual bool remove(int ID) override ;
+
+    virtual optional<Account>searchByUserName(QString userName) = 0 ;
 };
 
 #endif // ACCOUNTREPOSITORY_H
