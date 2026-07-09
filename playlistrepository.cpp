@@ -31,12 +31,26 @@ bool PlaylistRepository::remove(int ID)
 
 void PlaylistRepository::insertSong(int playlistID, int songID)
 {
-    playlists[playlistID].setSongID(songID) ;
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getId() == playlistID)
+        {
+            playlists[i].setSongID(songID);
+            return;
+        }
+    }
 }
 
 void PlaylistRepository::removeSong(int playlistID, int songID)
 {
-    playlists[playlistID].removeSongID(songID) ;
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getId() == playlistID)
+        {
+            playlists[i].removeSongID(songID);
+            return;
+        }
+    }
 }
 
 vector<Playlist> PlaylistRepository::getPlaylists(int listenerID)
