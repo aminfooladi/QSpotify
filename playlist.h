@@ -11,7 +11,7 @@ private:
     int id;
     QString name;
     int listenerId;
-    vector<int> songIds ;
+    vector<int> songIDs ;
 
 public:
     Playlist();
@@ -25,6 +25,12 @@ public:
 
     int getListenerId() const;
     void setListenerId(int listenerId);
+
+    vector<int> getSongIDs() const;
+    void setSongIDs(vector<int> songIDs);
+    void setSongID(int songID);
+
+    void removeSongID(int songIDs) ;
 };
 
 #endif // PLAYLIST_H

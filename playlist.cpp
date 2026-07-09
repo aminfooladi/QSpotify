@@ -13,3 +13,9 @@ void Playlist::setName(const QString& name) { this->name = name; }
 
 int Playlist::getListenerId() const { return listenerId; }
 void Playlist::setListenerId(int listenerId) { this->listenerId = listenerId; }
+
+vector<int> Playlist::getSongIDs() const { return songIDs; }
+void Playlist::setSongIDs(vector<int> songIDs) { this->songIDs = songIDs ; }
+void Playlist::setSongID(int songID) { this->songIDs.push_back(songID); }
+
+void Playlist::removeSongID(int songID) { this->songIDs.erase(this->songIDs.begin()+songID); }

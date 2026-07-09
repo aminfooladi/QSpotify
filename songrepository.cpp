@@ -65,3 +65,17 @@ vector<Song> SongRepository::getByAlbum(int albumID)
     return result;
 }
 
+vector<Song> SongRepository::getByPlaylist(int playlistID)
+{
+    vector<Song> result;
+
+    return result;
+}
+
+vector<Song> SongRepository::getByLikedSongs(int listenerID)
+{
+    vector<Song> result;
+
+    return result;
+}
+

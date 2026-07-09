@@ -16,6 +16,10 @@ public:
     virtual int save(const Playlist& temp) override ;
     virtual optional<Playlist> search(int ID) override ;
     virtual bool remove(int ID) override ;
+
+    void insertSong(int playlistID , int songID) ;
+    void removeSong(int playlistID , int songID) ;
+    vector<Playlist> getPlaylists(int listenerID) ;
 };
 
 #endif // PLAYLISTREPOSITORY_H

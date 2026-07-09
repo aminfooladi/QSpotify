@@ -18,8 +18,10 @@ public:
     virtual bool remove(int ID) override ;
 
     vector<Song> singleSongs(int ArtistID) ;
-    vector<Song> getByArtist(int artistId);
-    vector<Song> getByAlbum(int albumId);
+    vector<Song> getByArtist(int artistID);
+    vector<Song> getByAlbum(int albumID);
+    vector<Song> getByPlaylist(int playlisID);
+    vector<Song> getByLikedSongs(int listenerID) ;
 };
 
 #endif // SONGREPOSITORY_H

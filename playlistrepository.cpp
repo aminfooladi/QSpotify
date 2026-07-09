@@ -29,3 +29,20 @@ bool PlaylistRepository::remove(int ID)
     return false ;
 }
 
+void PlaylistRepository::insertSong(int playlistID, int songID)
+{
+    playlists[playlistID].setSongID(songID) ;
+}
+
+void PlaylistRepository::removeSong(int playlistID, int songID)
+{
+    playlists[playlistID].removeSongID(songID) ;
+}
+
+vector<Playlist> PlaylistRepository::getPlaylists(int listenerID)
+{
+
+}
+
+
+
