@@ -41,8 +41,15 @@ void PlaylistRepository::removeSong(int playlistID, int songID)
 
 vector<Playlist> PlaylistRepository::getPlaylists(int listenerID)
 {
-
+    vector<Playlist> result;
+    for ( int i=0 ; i<playlists.size() ; i++ )
+    {
+        if(playlists[i].getListenerId()==listenerID) result.push_back(playlists[i]) ;
+    }
+    return result ;
 }
+
+
 
 
 
