@@ -12,3 +12,10 @@ LoginWindow::~LoginWindow()
 {
     delete ui;
 }
+
+void LoginWindow::on_loginButton_clicked()
+{
+    QString userName = ui->usernameLineEdit->text() ;
+
+}
+
