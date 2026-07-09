@@ -1,0 +1,39 @@
+# Qt generated files
+*.user
+*.user.*
+*.creator
+*.creator.*
+*.files
+*.includes
+*.config
+*.stash
+
+# Build directories
+build/
+build-*/
+*-build/
+debug/
+release/
+
+# Compiled files
+*.exe
+*.ilk
+*.pdb
+*.obj
+*.o
+*.dll
+*.so
+*.dylib
+
+# Qt moc files
+moc_*.cpp
+moc_*.obj
+ui_*.h
+qrc_*.cpp
+*.moc
+moc_predefs.h
+
+# IDE files
+.qtcreator/
+.idea/
+.vscode/
