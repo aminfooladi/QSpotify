@@ -28,3 +28,13 @@ bool AlbumRepository::remove(int ID)
     }
     return false ;
 }
+
+vector<Album> AlbumRepository::getAlbums(int artistID)
+{
+    vector<Album> result ;
+    for ( int i=0 ; i<albums.size() ; i++ )
+    {
+        if(albums[i].getArtistId()==artistID) result.push_back(albums[i]) ;
+    }
+    return result;
+}
