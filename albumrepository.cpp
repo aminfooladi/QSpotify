@@ -1,4 +1,5 @@
 #include "albumrepository.h"
+using namespace std ;
 
 AlbumRepository::AlbumRepository() {}
 

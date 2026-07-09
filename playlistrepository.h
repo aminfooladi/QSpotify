@@ -9,17 +9,17 @@
 class PlaylistRepository : public AbstractRepository<Playlist>
 {
 private:
-    vector<Playlist> playlists ;
+    std::vector<Playlist> playlists ;
 public:
     PlaylistRepository();
 
     virtual int save(const Playlist& temp) override ;
-    virtual optional<Playlist> search(int ID) override ;
+    virtual std::optional<Playlist> search(int ID) override ;
     virtual bool remove(int ID) override ;
 
     void insertSong(int playlistID , int songID) ;
     void removeSong(int playlistID , int songID) ;
-    vector<Playlist> getPlaylists(int listenerID) ;
+    std::vector<Playlist> getPlaylists(int listenerID) ;
 };
 
 #endif // PLAYLISTREPOSITORY_H

@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <vector>
-using namespace std;
 
 class Playlist
 {
@@ -11,7 +10,7 @@ private:
     int id;
     QString name;
     int listenerId;
-    vector<int> songIDs ;
+    std::vector<int> songIDs ;
 
 public:
     Playlist();
@@ -26,8 +25,8 @@ public:
     int getListenerId() const;
     void setListenerId(int listenerId);
 
-    vector<int> getSongIDs() const;
-    void setSongIDs(vector<int> songIDs);
+    std::vector<int> getSongIDs() const;
+    void setSongIDs(std::vector<int> songIDs);
     void setSongID(int songID);
 
     void removeSongID(int songIDs) ;

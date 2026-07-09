@@ -1,4 +1,5 @@
 #include "playlist.h"
+using namespace std ;
 
 Playlist::Playlist() : id(0), listenerId(0) {}
 

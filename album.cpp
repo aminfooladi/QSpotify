@@ -1,4 +1,5 @@
 #include "album.h"
+using namespace std ;
 
 Album::Album() : id(0), artistId(0) {}
 

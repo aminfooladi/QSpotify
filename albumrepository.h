@@ -9,15 +9,15 @@
 class AlbumRepository : public AbstractRepository<Album>
 {
 private:
-    vector<Album> albums ;
+    std::vector<Album> albums ;
 public:
     AlbumRepository();
 
     virtual int save(const Album& temp) override ;
-    virtual optional<Album> search(int ID) override ;
+    virtual std::optional<Album> search(int ID) override ;
     virtual bool remove(int ID) override ;
 
-    vector<Album> getAlbums(int artistID) ;
+    std::vector<Album> getAlbums(int artistID) ;
 };
 
 #endif // ALBUMREPOSITORY_H

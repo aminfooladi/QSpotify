@@ -1,4 +1,5 @@
 #include "playlistrepository.h"
+using namespace std ;
 
 PlaylistRepository::PlaylistRepository() {}
 

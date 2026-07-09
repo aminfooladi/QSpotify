@@ -14,10 +14,10 @@ public:
     AccountRepository();
 
     virtual int save(const Account& temp) override ;
-    virtual optional<Account> search(int ID) override ;
+    virtual std::optional<Account> search(int ID) override ;
     virtual bool remove(int ID) override ;
 
-    virtual optional<Account>searchByUserName(QString userName) = 0 ;
+    virtual std::optional<Account>searchByUserName(QString userName) = 0 ;
 };
 
 #endif // ACCOUNTREPOSITORY_H

@@ -1,4 +1,5 @@
 #include "song.h"
+using namespace std ;
 
 Song::Song() : id(0), releaseYear(0), artistId(0), albumId(0) {}
 
