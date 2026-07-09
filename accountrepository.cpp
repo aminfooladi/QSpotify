@@ -9,11 +9,22 @@ int AccountRepository::save(const Account &temp)
 
 optional<Account> AccountRepository::search(int ID)
 {
-    Account a ;
-    return a ;
+    for ( int i=0 ; i<accounts.size() ; i++ )
+    {
+        if ( accounts[i].getId()==ID ) return accounts[i] ;
+    }
+    return nullopt ;
 }
 
 bool AccountRepository::remove(int ID)
 {
-    return 0 ;
+    for ( int i=0 ; i<accounts.size() ; i++ )
+    {
+        if ( accounts[i].getId()==ID )
+        {
+            accounts.erase(accounts.begin()+i) ;
+            return true ;
+        }
+    }
+    return false ;
 }

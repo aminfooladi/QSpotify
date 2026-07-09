@@ -9,11 +9,22 @@ int AlbumRepository::save(const Album &temp)
 
 optional<Album> AlbumRepository::search(int ID)
 {
-    Album a ;
-    return a ;
+    for ( int i=0 ; i<albums.size() ; i++ )
+    {
+        if ( albums[i].getId()==ID ) return albums[i] ;
+    }
+    return nullopt ;
 }
 
 bool AlbumRepository::remove(int ID)
 {
-    return 0 ;
+    for ( int i=0 ; i<albums.size() ; i++ )
+    {
+        if ( albums[i].getId()==ID )
+        {
+            albums.erase(albums.begin()+i) ;
+            return true ;
+        }
+    }
+    return false ;
 }

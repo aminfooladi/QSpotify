@@ -4,8 +4,12 @@
 #include "abstractrepository.h"
 #include "album.h"
 
+#include <vector>
+
 class AlbumRepository : public AbstractRepository<Album>
 {
+private:
+    vector<Album> albums ;
 public:
     AlbumRepository();
 

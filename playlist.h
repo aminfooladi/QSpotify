@@ -2,6 +2,8 @@
 #define PLAYLIST_H
 
 #include <QString>
+#include <vector>
+using namespace std;
 
 class Playlist
 {
@@ -9,6 +11,7 @@ private:
     int id;
     QString name;
     int listenerId;
+    vector<int> songIds ;
 
 public:
     Playlist();

@@ -9,12 +9,23 @@ int PlaylistRepository::save(const Playlist &temp)
 
 optional<Playlist> PlaylistRepository::search(int ID)
 {
-    Playlist a ;
-    return a ;
+    for ( int i=0 ; i<playlists.size() ; i++ )
+    {
+        if ( playlists[i].getId()==ID ) return playlists[i] ;
+    }
+    return nullopt ;
 }
 
 bool PlaylistRepository::remove(int ID)
 {
-    return 0 ;
+    for ( int i=0 ; i<playlists.size() ; i++ )
+    {
+        if ( playlists[i].getId()==ID )
+        {
+            playlists.erase(playlists.begin()+i) ;
+            return true ;
+        }
+    }
+    return false ;
 }
 

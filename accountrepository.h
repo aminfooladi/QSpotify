@@ -4,6 +4,8 @@
 #include "abstractrepository.h"
 #include "account.h"
 
+#include <vector>
+
 class AccountRepository : public AbstractRepository<Account>
 {
 private:
