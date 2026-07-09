@@ -13,8 +13,8 @@ SOURCES += \
     albumrepository.cpp \
     artistrepository.cpp \
     listenerrepository.cpp \
+    loginwindow.cpp \
     main.cpp \
-    mainwindow.cpp \
     playlist.cpp \
     playlistrepository.cpp \
     song.cpp \
@@ -28,14 +28,14 @@ HEADERS += \
     albumrepository.h \
     artistrepository.h \
     listenerrepository.h \
-    mainwindow.h \
+    loginwindow.h \
     playlist.h \
     playlistrepository.h \
     song.h \
     songrepository.h
 
 FORMS += \
-    mainwindow.ui
+    loginwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
