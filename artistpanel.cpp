@@ -12,3 +12,13 @@ ArtistPanel::~ArtistPanel()
 {
     delete ui;
 }
+
+void ArtistPanel::setDatabase(Database* database)
+{
+    this->database = database ;
+}
+
+void ArtistPanel::setPtrToPage(AppPage *page)
+{
+    this->page = page ;
+}

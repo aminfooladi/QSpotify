@@ -1,6 +1,9 @@
 #ifndef ARTISTPANEL_H
 #define ARTISTPANEL_H
 
+#include "database.h"
+#include "apppagge.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -15,7 +18,12 @@ public:
     explicit ArtistPanel(QWidget *parent = nullptr);
     ~ArtistPanel();
 
+    void setDatabase(Database* database) ;
+    void setPtrToPage(AppPage* page) ;
+
 private:
+    Database * database ;
+    AppPage * page ;
     Ui::ArtistPanel *ui;
 };
 

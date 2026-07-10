@@ -12,3 +12,13 @@ RegisterWindow::~RegisterWindow()
 {
     delete ui;
 }
+
+void RegisterWindow::setDatabase(Database* database)
+{
+    this->database = database ;
+}
+
+void RegisterWindow::setPtrToPage(AppPage *page)
+{
+    this->page = page ;
+}

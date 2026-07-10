@@ -1,6 +1,9 @@
 #ifndef LISTENERPANEL_H
 #define LISTENERPANEL_H
 
+#include "database.h"
+#include "apppagge.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -15,8 +18,18 @@ public:
     explicit ListenerPanel(QWidget *parent = nullptr);
     ~ListenerPanel();
 
+    void setDatabase(Database* database) ;
+    void setPtrToPage(AppPage* page) ;
+
 private:
+    Database * database ;
+    AppPage * page ;
     Ui::ListenerPanel *ui;
 };
+
+inline void ListenerPanel::setDatabase(Database *database)
+{
+
+}
 
 #endif // LISTENERPANEL_H

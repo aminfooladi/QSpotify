@@ -12,3 +12,13 @@ ListenerPanel::~ListenerPanel()
 {
     delete ui;
 }
+
+void ListenerPanel::setDatabase(Database* database)
+{
+    this->database = database ;
+}
+
+void ListenerPanel::setPtrToPage(AppPage *page)
+{
+    this->page = page ;
+}

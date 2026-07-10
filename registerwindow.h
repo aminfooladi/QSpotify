@@ -1,5 +1,8 @@
 #ifndef REGISTERWINDOW_H
 #define REGISTERWINDOW_H
+#include "database.h"
+#include "apppagge.h"
+
 
 #include <QMainWindow>
 
@@ -15,7 +18,12 @@ public:
     explicit RegisterWindow(QWidget *parent = nullptr);
     ~RegisterWindow();
 
+    void setDatabase(Database* database) ;
+    void setPtrToPage(AppPage* page) ;
+
 private:
+    Database * database ;
+    AppPage * page ;
     Ui::RegisterWindow *ui;
 };
 
