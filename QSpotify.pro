@@ -30,6 +30,7 @@ HEADERS += \
     accountrepository.h \
     album.h \
     albumrepository.h \
+    apppagge.h \
     artistpanel.h \
     artistrepository.h \
     database.h \

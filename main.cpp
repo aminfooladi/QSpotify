@@ -1,16 +1,9 @@
 #include "loginwindow.h"
 #include "database.h"
+#include "apppagge.h"
 
 #include <QApplication>
 using namespace std ;
-
-enum class AppPage
-{
-    Login,
-    Register,
-    ArtistPanel,
-    ListenerPanel
-};
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +14,8 @@ int main(int argc, char *argv[])
 
     LoginWindow login ;
     login.setDatabase(&database);
+
+
 
     AppPage page = AppPage::Login ;
     switch (page)

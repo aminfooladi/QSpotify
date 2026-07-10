@@ -20,6 +20,11 @@ void LoginWindow::setDatabase(Database* database)
     this->database = database ;
 }
 
+void LoginWindow::setPtrToPage(AppPage *page)
+{
+    this->page = page ;
+}
+
 void LoginWindow::on_loginButton_clicked()
 {
     QString userName = ui->usernameLineEdit->text() ;
@@ -55,10 +60,12 @@ void LoginWindow::on_loginButton_clicked()
             if (user.getRole() == Role::Artist)
             {
                 QMessageBox::information(this, "Success", "Welcome Artist!");
+                *page = AppPage::ArtistPanel ;
             }
             else
             {
                 QMessageBox::information(this, "Success", "Welcome Listener!");
+                *page = AppPage::ListenerPanel ;
             }
             return;
         }

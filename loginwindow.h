@@ -2,6 +2,7 @@
 #define LOGINWINDOW_H
 
 #include "database.h"
+#include "apppagge.h"
 
 #include <QMainWindow>
 
@@ -18,12 +19,14 @@ public:
     ~LoginWindow();
 
     void setDatabase(Database* database) ;
+    void setPtrToPage(AppPage* page) ;
 
 private slots:
     void on_loginButton_clicked();
 
 private:
     Database * database ;
+    AppPage * page ;
     Ui::LoginWindow *ui;
 };
 
