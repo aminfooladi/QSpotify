@@ -11,13 +11,16 @@ SOURCES += \
     accountrepository.cpp \
     album.cpp \
     albumrepository.cpp \
+    artistpanel.cpp \
     artistrepository.cpp \
     database.cpp \
+    listenerpanel.cpp \
     listenerrepository.cpp \
     loginwindow.cpp \
     main.cpp \
     playlist.cpp \
     playlistrepository.cpp \
+    registerwindow.cpp \
     song.cpp \
     songrepository.cpp
 
@@ -27,17 +30,23 @@ HEADERS += \
     accountrepository.h \
     album.h \
     albumrepository.h \
+    artistpanel.h \
     artistrepository.h \
     database.h \
+    listenerpanel.h \
     listenerrepository.h \
     loginwindow.h \
     playlist.h \
     playlistrepository.h \
+    registerwindow.h \
     song.h \
     songrepository.h
 
 FORMS += \
-    loginwindow.ui
+    artistpanel.ui \
+    listenerpanel.ui \
+    loginwindow.ui \
+    registerwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
