@@ -12,6 +12,7 @@ SOURCES += \
     album.cpp \
     albumrepository.cpp \
     artistrepository.cpp \
+    database.cpp \
     listenerrepository.cpp \
     loginwindow.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     album.h \
     albumrepository.h \
     artistrepository.h \
+    database.h \
     listenerrepository.h \
     loginwindow.h \
     playlist.h \

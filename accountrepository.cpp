@@ -29,3 +29,12 @@ bool AccountRepository::remove(int ID)
     }
     return false ;
 }
+
+std::optional<Account> AccountRepository::searchByUserName(QString userName)
+{
+    for(int i=0 ; i<accounts.size() ; i++ )
+    {
+        if(accounts[i].getUserName()==userName) return accounts[i] ;
+    }
+    return nullopt ;
+}

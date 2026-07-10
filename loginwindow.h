@@ -1,6 +1,8 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
+#include "database.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -15,10 +17,13 @@ public:
     explicit LoginWindow(QWidget *parent = nullptr);
     ~LoginWindow();
 
+    void setDatabase(Database* database) ;
+
 private slots:
     void on_loginButton_clicked();
 
 private:
+    Database * database ;
     Ui::LoginWindow *ui;
 };
 
