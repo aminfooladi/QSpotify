@@ -19,9 +19,23 @@ int main(int argc, char *argv[])
     Database database ;
     database.loadDefaultData();
 
-    LoginWindow w;
-    w.setDatabase(&database);
-    w.show();
+    AppPage page = AppPage::Login ;
+    switch (page)
+    {
+    case AppPage::Login:
+    {
+        LoginWindow login ;
+        login.setDatabase(&database);
+        login.show();
+        break;
+    }
+    case AppPage::Register:
+    {
+
+    }
+    default:
+        break;
+    }
 
     return QApplication::exec();
 }
