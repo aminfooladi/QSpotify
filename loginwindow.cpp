@@ -61,11 +61,15 @@ void LoginWindow::on_loginButton_clicked()
             {
                 QMessageBox::information(this, "Success", "Welcome Artist!");
                 *page = AppPage::ArtistPanel ;
+                emit loginSuccessful() ;
+                this->close();
             }
             else
             {
                 QMessageBox::information(this, "Success", "Welcome Listener!");
                 *page = AppPage::ListenerPanel ;
+                emit loginSuccessful() ;
+                this->close();
             }
             return;
         }
@@ -82,5 +86,13 @@ void LoginWindow::on_loginButton_clicked()
         ui->passwordLineEdit->setText("") ;
     }
 
+}
+
+
+void LoginWindow::on_registerButton_clicked()
+{
+    *page = AppPage::Register ;
+    emit goToRegisterPage() ;
+    this->close();
 }
 

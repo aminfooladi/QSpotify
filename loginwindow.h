@@ -21,8 +21,13 @@ public:
     void setDatabase(Database* database) ;
     void setPtrToPage(AppPage* page) ;
 
+signals:
+    void loginSuccessful() ;
+    void goToRegisterPage();
 private slots:
     void on_loginButton_clicked();
+
+    void on_registerButton_clicked();
 
 private:
     Database * database ;

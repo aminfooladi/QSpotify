@@ -27,9 +27,4 @@ private:
     Ui::ListenerPanel *ui;
 };
 
-inline void ListenerPanel::setDatabase(Database *database)
-{
-
-}
-
 #endif // LISTENERPANEL_H
