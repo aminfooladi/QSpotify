@@ -19,13 +19,14 @@ int main(int argc, char *argv[])
     Database database ;
     database.loadDefaultData();
 
+    LoginWindow login ;
+    login.setDatabase(&database);
+
     AppPage page = AppPage::Login ;
     switch (page)
     {
     case AppPage::Login:
     {
-        LoginWindow login ;
-        login.setDatabase(&database);
         login.show();
         break;
     }
