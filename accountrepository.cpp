@@ -3,9 +3,27 @@ using namespace std ;
 
 AccountRepository::AccountRepository() {}
 
-int AccountRepository::save(const Account &temp)
+int AccountRepository::save(const Account &account)
 {
-    return 0 ;
+    if (account.getId() == 0)
+    {
+        Account newAccount = account;
+        newAccount.setId(accounts.size() + 1);
+        accounts.push_back(newAccount);
+        return newAccount.getId();
+    }
+
+    for (int i = 0; i < accounts.size(); i++)
+    {
+        if (accounts[i].getId() == account.getId())
+        {
+            accounts[i] = account;
+            return accounts[i].getId();
+        }
+    }
+
+    accounts.push_back(account);
+    return account.getId();
 }
 
 optional<Account> AccountRepository::search(int ID)

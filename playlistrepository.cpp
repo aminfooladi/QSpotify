@@ -3,9 +3,27 @@ using namespace std ;
 
 PlaylistRepository::PlaylistRepository() {}
 
-int PlaylistRepository::save(const Playlist &temp)
+int PlaylistRepository::save(const Playlist &playlist)
 {
-    return 0 ;
+    if (playlist.getId() == 0)
+    {
+        Playlist newPlaylist = playlist;
+        newPlaylist.setId(playlists.size() + 1);
+        playlists.push_back(newPlaylist);
+        return newPlaylist.getId();
+    }
+
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getId() == playlist.getId())
+        {
+            playlists[i] = playlist;
+            return playlists[i].getId();
+        }
+    }
+
+    playlists.push_back(playlist);
+    return playlist.getId();
 }
 
 optional<Playlist> PlaylistRepository::search(int ID)

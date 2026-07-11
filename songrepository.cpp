@@ -3,9 +3,27 @@ using namespace std ;
 
 SongRepository::SongRepository() {}
 
-int SongRepository::save(const Song &temp)
+int SongRepository::save(const Song &song)
 {
-    return 0 ;
+    if (song.getId() == 0)
+    {
+        Song newSong = song;
+        newSong.setId(songs.size() + 1);
+        songs.push_back(newSong);
+        return newSong.getId();
+    }
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        if (songs[i].getId() == song.getId())
+        {
+            songs[i] = song;
+            return songs[i].getId();
+        }
+    }
+
+    songs.push_back(song);
+    return song.getId();
 }
 
 optional<Song> SongRepository::search(int ID)

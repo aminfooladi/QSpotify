@@ -3,9 +3,27 @@ using namespace std ;
 
 AlbumRepository::AlbumRepository() {}
 
-int AlbumRepository::save(const Album &temp)
+int AlbumRepository::save(const Album &album)
 {
-    return 0 ;
+    if (album.getId() == 0)
+    {
+        Album newAlbum = album;
+        newAlbum.setId(albums.size() + 1);
+        albums.push_back(newAlbum);
+        return newAlbum.getId();
+    }
+
+    for (int i = 0; i < albums.size(); i++)
+    {
+        if (albums[i].getId() == album.getId())
+        {
+            albums[i] = album;
+            return albums[i].getId();
+        }
+    }
+
+    albums.push_back(album);
+    return album.getId();
 }
 
 optional<Album> AlbumRepository::search(int ID)
