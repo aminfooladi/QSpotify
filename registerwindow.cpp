@@ -22,3 +22,15 @@ void RegisterWindow::setPtrToPage(AppPage *page)
 {
     this->page = page ;
 }
+
+void RegisterWindow::on_registerButton_clicked()
+{
+
+}
+
+
+void RegisterWindow::on_backToLoginButton_clicked()
+{
+
+}
+
