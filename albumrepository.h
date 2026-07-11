@@ -18,6 +18,8 @@ public:
     virtual bool remove(int ID) override ;
 
     std::vector<Album> getAlbums(int artistID) ;
+
+    std::vector<Album> getAlbums() ;
 };
 
 #endif // ALBUMREPOSITORY_H

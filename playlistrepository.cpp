@@ -72,6 +72,11 @@ void PlaylistRepository::removeSong(int playlistID, int songID)
     }
 }
 
+std::vector<Playlist> PlaylistRepository::getAllPlaylists()
+{
+    return this->playlists ;
+}
+
 vector<Playlist> PlaylistRepository::getPlaylists(int listenerID)
 {
     vector<Playlist> result;

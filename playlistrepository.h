@@ -20,6 +20,8 @@ public:
     void insertSong(int playlistID , int songID) ;
     void removeSong(int playlistID , int songID) ;
     std::vector<Playlist> getPlaylists(int listenerID) ;
+
+    std::vector<Playlist> getAllPlaylists() ;
 };
 
 #endif // PLAYLISTREPOSITORY_H

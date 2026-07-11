@@ -18,6 +18,8 @@ public:
     virtual bool remove(int ID) override ;
 
     virtual std::optional<Account>searchByUserName(QString userName) ;
+
+    std::vector<Account> getAccounts() ;
 };
 
 #endif // ACCOUNTREPOSITORY_H

@@ -57,3 +57,5 @@ vector<Album> AlbumRepository::getAlbums(int artistID)
     }
     return result;
 }
+
+std::vector<Album> AlbumRepository::getAlbums() { return this->albums ; }

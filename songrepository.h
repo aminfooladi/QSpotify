@@ -22,6 +22,8 @@ public:
     std::vector<Song> getByAlbum(int albumID);
     std::vector<Song> getByPlaylist(int playlisID);
     std::vector<Song> getByLikedSongs(int listenerID) ;
+
+    std::vector<Song> getSongs() ;
 };
 
 #endif // SONGREPOSITORY_H

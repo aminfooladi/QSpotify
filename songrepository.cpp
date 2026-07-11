@@ -48,6 +48,11 @@ bool SongRepository::remove(int ID)
     return false ;
 }
 
+std::vector<Song> SongRepository::getSongs()
+{
+    return this->songs ;
+}
+
 vector<Song> SongRepository::singleSongs(int ArtistID)
 {
     vector<Song> singles ;

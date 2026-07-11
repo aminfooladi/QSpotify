@@ -56,3 +56,5 @@ std::optional<Account> AccountRepository::searchByUserName(QString userName)
     }
     return nullopt ;
 }
+
+std::vector<Account> AccountRepository::getAccounts() { return this->accounts ; }
