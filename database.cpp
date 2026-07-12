@@ -1,6 +1,8 @@
 #include "database.h"
+
 #include <fstream>
 #include <iostream>
+#include <QDebug>
 using namespace std;
 
 Database::Database() {}
@@ -16,7 +18,7 @@ void Database::loadDefaultData()
 
 void Database::saveAll()
 {
-    ofstream file("data.txt");
+    ofstream file("C:/Users/vihan-rayaneh/OneDrive/Desktop/Project Spotify/QSpotify/data.txt");
 
     if (!file.is_open()) { return; }
 
@@ -88,7 +90,7 @@ void Database::saveAll()
 
 void Database::loadAll()
 {
-    ifstream file("data.txt");
+    ifstream file("C:/Users/vihan-rayaneh/OneDrive/Desktop/Project Spotify/QSpotify/data.txt");
 
     if (!file.is_open())
     {

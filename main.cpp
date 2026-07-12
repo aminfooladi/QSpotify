@@ -60,6 +60,12 @@ int main(int argc, char *argv[])
         reg.show();
     });
 
+    QObject::connect(&reg , &RegisterWindow::goToLoginPage , [&](){
+        reg.hide();
+        login.show();
+    });
+
     login.show();
+
     return a.exec();
 }
