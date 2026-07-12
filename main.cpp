@@ -6,6 +6,7 @@
 #include "apppagge.h"
 
 #include <QApplication>
+#include <QIcon>
 using namespace std ;
 
 int main(int argc, char *argv[])
