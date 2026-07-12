@@ -20,6 +20,21 @@ public:
 
     void setDatabase(Database* database) ;
     void setPtrToPage(AppPage* page) ;
+    void setAccountInfo() ;
+
+signals:
+    void goToLoginPage() ;
+
+private slots:
+    void on_OK_clicked();
+
+    void on_editInfoButton_clicked();
+
+    void on_Cancel_clicked();
+
+    void on_logoutButton_clicked();
+
+    void on_deleteAccountButton_clicked();
 
 private:
     Database * database ;

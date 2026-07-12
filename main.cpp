@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
             artist.show();
             break;
         case AppPage::ListenerPanel:
+            listener.setAccountInfo();
             listener.show();
             break;
         }
@@ -63,6 +64,11 @@ int main(int argc, char *argv[])
 
     QObject::connect(&reg , &RegisterWindow::goToLoginPage , [&](){
         reg.hide();
+        login.show();
+    });
+
+    QObject::connect(&listener , &ListenerPanel::goToLoginPage , [&](){
+        listener.hide();
         login.show();
     });
 

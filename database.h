@@ -14,6 +14,8 @@ public:
     SongRepository songRepo ;
     PlaylistRepository playlistRepo ;
 
+    Account userAccount;
+
     Database();
 
     void loadDefaultData();

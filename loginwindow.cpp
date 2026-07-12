@@ -61,6 +61,7 @@ void LoginWindow::on_loginButton_clicked()
             {
                 QMessageBox::information(this, "Success", "Welcome Artist!");
                 *page = AppPage::ArtistPanel ;
+                this->database->userAccount = user ;
                 emit loginSuccessful() ;
                 this->close();
             }
@@ -68,6 +69,7 @@ void LoginWindow::on_loginButton_clicked()
             {
                 QMessageBox::information(this, "Success", "Welcome Listener!");
                 *page = AppPage::ListenerPanel ;
+                this->database->userAccount = user ;
                 emit loginSuccessful() ;
                 this->close();
             }
