@@ -166,6 +166,9 @@ color: rgb(0, 85, 0);</string>
        </item>
        <item row="0" column="1">
         <widget class="QLabel" name="fullNameLabel_3">
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -184,6 +187,9 @@ background: transparent;</string>
        </item>
        <item row="1" column="1">
         <widget class="QLabel" name="userNameLabel_3">
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -202,6 +208,9 @@ background: transparent;</string>
        </item>
        <item row="2" column="1">
         <widget class="QLabel" name="roleLabel_3">
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -220,6 +229,9 @@ background: transparent;</string>
        </item>
        <item row="3" column="1">
         <widget class="QLabel" name="biographyLabel_3">
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
          <property name="text">
           <string/>
          </property>

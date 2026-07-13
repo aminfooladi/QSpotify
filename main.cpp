@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
             reg.show();
             break;
         case AppPage::ArtistPanel:
+            artist.setAccountInfo();
             artist.show();
             break;
         case AppPage::ListenerPanel:
@@ -69,6 +70,11 @@ int main(int argc, char *argv[])
 
     QObject::connect(&listener , &ListenerPanel::goToLoginPage , [&](){
         listener.hide();
+        login.show();
+    });
+
+    QObject::connect(&artist , &ArtistPanel::goToLoginPage , [&](){
+        artist.hide();
         login.show();
     });
 
