@@ -58,7 +58,7 @@ void ListenerPanel::lodeAlbums()
 {
     vector<Album> albums = database->albumRepo.getAlbums() ;
     ui->albumListWidget->clear() ;
-    ui->albumListWidget->setIconSize(QSize(150,150)) ;
+    ui->albumListWidget->setIconSize(QSize(150,170)) ;
     ui->albumListWidget->setGridSize(QSize(180,200)) ;
     ui->albumListWidget->setViewMode(QListWidget::IconMode) ;
     ui->albumListWidget->setResizeMode(QListWidget::Adjust) ;
@@ -102,7 +102,7 @@ void ListenerPanel::lodeSingles()
     }
 
     ui->singlesListWidget->clear();
-    ui->singlesListWidget->setIconSize(QSize(150, 150));
+    ui->singlesListWidget->setIconSize(QSize(150, 170));
     ui->singlesListWidget->setGridSize(QSize(180, 200));
     ui->singlesListWidget->setViewMode(QListWidget::IconMode);
     ui->singlesListWidget->setResizeMode(QListWidget::Adjust);
@@ -134,7 +134,7 @@ void ListenerPanel::lodePlaylists()
 {
     vector<Playlist> playlists = database->playlistRepo.getPlaylists(database->userAccount.getId());
     ui->playlistsListWidget->clear();
-    ui->playlistsListWidget->setIconSize(QSize(150, 150));
+    ui->playlistsListWidget->setIconSize(QSize(150, 170));
     ui->playlistsListWidget->setGridSize(QSize(180, 200));
     ui->playlistsListWidget->setViewMode(QListWidget::IconMode);
     ui->playlistsListWidget->setResizeMode(QListWidget::Adjust);

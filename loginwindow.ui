@@ -20,7 +20,7 @@
    <string>Login Window</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/background/images/background (3).png);
+   <string notr="true">background-image: url(:/images/background/images/background .png);
 background-position: center;
 </string>
   </property>
@@ -76,7 +76,8 @@ background-position: center;
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background: transparent;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>User Name : </string>
@@ -102,7 +103,8 @@ padding: 5px;
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background: transparent;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>Password :    </string>
@@ -154,10 +156,11 @@ border-radius: 10px;
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
 border-radius: 15px;
 padding: 10px;
-</string>
+color: rgb(0, 85, 0);</string>
           </property>
           <property name="text">
            <string>Register</string>
@@ -176,10 +179,11 @@ padding: 10px;
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border:1px solid rgb(0, 85, 0);
 border-radius: 15px;
 padding: 10px;
-</string>
+color: rgb(0, 85, 0);</string>
           </property>
           <property name="text">
            <string>Log In</string>
@@ -210,7 +214,7 @@ padding: 10px;
      </spacer>
     </item>
     <item row="0" column="3">
-     <layout class="QGridLayout" name="gridLayout_3">
+     <layout class="QGridLayout" name="gridLayout_3" columnstretch="3,2,0">
       <item row="1" column="1">
        <spacer name="verticalSpacer_3">
         <property name="orientation">
@@ -245,11 +249,11 @@ border: none;</string>
          <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
+         <enum>QSizePolicy::Policy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>150</width>
+          <width>100</width>
           <height>20</height>
          </size>
         </property>

@@ -14,7 +14,7 @@
    <string>Register Window</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/background/images/background.png);
+   <string notr="true">background-image: url(:/images/background/images/background .png);
 background-position: center;
 </string>
   </property>
@@ -64,7 +64,8 @@ background-position: center;
       <item row="0" column="0">
        <widget class="QLabel" name="fullNameLabel">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background-size: cover;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>Full Name :</string>
@@ -84,7 +85,8 @@ padding: 5px;
       <item row="1" column="0">
        <widget class="QLabel" name="userNameLabel">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background-size: cover;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>User Name :</string>
@@ -104,7 +106,8 @@ padding: 5px;
       <item row="2" column="0">
        <widget class="QLabel" name="passwordLabel">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background-size: cover;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>Password :</string>
@@ -124,7 +127,8 @@ padding: 5px;
       <item row="3" column="0">
        <widget class="QLabel" name="roleLabel">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background-size: cover;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>Role :</string>
@@ -136,7 +140,7 @@ padding: 5px;
         <item>
          <widget class="QRadioButton" name="artistButton">
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);
+           <string notr="true">color: rgb(0, 85, 0);
 background: transparent;
 border-radius: 10px;
 
@@ -151,7 +155,7 @@ border-radius: 10px;
         <item>
          <widget class="QRadioButton" name="listenerButton">
           <property name="styleSheet">
-           <string notr="true">color: rgb(255, 255, 255);
+           <string notr="true">color: rgb(0, 85, 0);
 background: transparent;
 border-radius: 10px;
 
@@ -168,7 +172,8 @@ border-radius: 10px;
       <item row="4" column="0">
        <widget class="QLabel" name="biographyLabel">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);</string>
+         <string notr="true">background-size: cover;
+color: rgb(0, 85, 0);</string>
         </property>
         <property name="text">
          <string>Biography :</string>
@@ -205,10 +210,11 @@ border-radius: 10px;
         <item>
          <widget class="QPushButton" name="backToLoginButton">
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
 border-radius: 15px;
 padding: 10px;
-</string>
+color: rgb(0, 85, 0);</string>
           </property>
           <property name="text">
            <string>Back to Login</string>
@@ -218,10 +224,11 @@ padding: 10px;
         <item>
          <widget class="QPushButton" name="registerButton">
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
 border-radius: 15px;
 padding: 10px;
-</string>
+color: rgb(0, 85, 0);</string>
           </property>
           <property name="text">
            <string>Register</string>
@@ -245,9 +252,9 @@ padding: 10px;
       </property>
      </spacer>
     </item>
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
+    <item row="0" column="2">
+     <layout class="QGridLayout" name="gridLayout_2" columnstretch="5,4,0" rowminimumheight="0,0">
+      <item row="1" column="1">
        <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
@@ -263,10 +270,10 @@ padding: 10px;
         </property>
        </spacer>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="1">
        <widget class="QLabel" name="label">
         <property name="styleSheet">
-         <string notr="true">image: url(:/images/logo/images/Logo.png);
+         <string notr="true">image: url(:/images/logo/images/nweLogo.png);
 background: transparent;
 border: none;</string>
         </property>
@@ -275,13 +282,13 @@ border: none;</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
+      <item row="0" column="0">
        <spacer name="horizontalSpacer_3">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
+         <enum>QSizePolicy::Policy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>

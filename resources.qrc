@@ -4,6 +4,8 @@
         <file>images/witeBackground.png</file>
         <file>images/background (2).png</file>
         <file>images/background (3).png</file>
+        <file>images/background  (2).png</file>
+        <file>images/background .png</file>
     </qresource>
     <qresource prefix="/images/icon">
         <file>images/Icon.png</file>
