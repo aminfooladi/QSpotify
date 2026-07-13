@@ -72,8 +72,8 @@ int main(int argc, char *argv[])
         login.show();
     });
 
-    // login.show();
-    listener.show();
+    login.show();
+    //listener.show();
 
     return a.exec();
 }

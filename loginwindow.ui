@@ -20,7 +20,7 @@
    <string>Login Window</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/background/images/background.png);
+   <string notr="true">background-image: url(:/images/background/images/background (3).png);
 background-position: center;
 </string>
   </property>
@@ -209,25 +209,9 @@ padding: 10px;
       </property>
      </spacer>
     </item>
-    <item row="0" column="0">
+    <item row="0" column="3">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="1">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>150</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="0">
+      <item row="1" column="1">
        <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
@@ -243,10 +227,10 @@ padding: 10px;
         </property>
        </spacer>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="1">
        <widget class="QLabel" name="logoLabel">
         <property name="styleSheet">
-         <string notr="true">image: url(:/images/logo/images/Logo.png);
+         <string notr="true">image: url(:/images/logo/images/nweLogo.png);
 background: transparent;
 border: none;</string>
         </property>
@@ -254,6 +238,22 @@ border: none;</string>
          <string/>
         </property>
        </widget>
+      </item>
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>150</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>

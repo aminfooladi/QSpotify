@@ -21,6 +21,9 @@ public:
     void setDatabase(Database* database) ;
     void setPtrToPage(AppPage* page) ;
     void setAccountInfo() ;
+    void lodeAlbums() ;
+    void lodeSingles();
+    void lodePlaylists();
 
 signals:
     void goToLoginPage() ;

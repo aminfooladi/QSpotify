@@ -13,17 +13,20 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/background/images/background (2).png);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,2" columnstretch="1,2">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,2" columnstretch="1,4">
     <property name="spacing">
      <number>6</number>
     </property>
     <item row="0" column="1">
-     <layout class="QGridLayout" name="gridLayout_4" rowstretch="0,0,0">
+     <layout class="QGridLayout" name="gridLayout_4" rowstretch="4,1" columnstretch="4,1">
       <item row="0" column="1">
        <widget class="QLabel" name="logoLabel_2">
         <property name="styleSheet">
-         <string notr="true">image: url(:/images/logo/images/Logo.png);
+         <string notr="true">image: url(:/images/logo/images/nweLogo.png);
 background: transparent;
 border: none;</string>
         </property>
@@ -38,7 +41,7 @@ border: none;</string>
          <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Policy::Fixed</enum>
+         <enum>QSizePolicy::Policy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -84,82 +87,19 @@ border: none;</string>
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>630</width>
+           <width>682</width>
            <height>418</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QScrollArea" name="albumsScrollArea">
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-            </property>
-            <property name="horizontalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
-            </property>
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents_3">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>610</width>
-               <height>110</height>
-              </rect>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_3"/>
-            </widget>
-           </widget>
+           <widget class="QListWidget" name="playlistsListWidget"/>
           </item>
           <item>
-           <widget class="QScrollArea" name="songlessScrollArea">
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-            </property>
-            <property name="horizontalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
-            </property>
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents_2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>610</width>
-               <height>111</height>
-              </rect>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-            </widget>
-           </widget>
+           <widget class="QListWidget" name="albumListWidget"/>
           </item>
           <item>
-           <widget class="QScrollArea" name="playlistsScrollArea">
-            <property name="verticalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-            </property>
-            <property name="horizontalScrollBarPolicy">
-             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
-            </property>
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>610</width>
-               <height>110</height>
-              </rect>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout"/>
-            </widget>
-           </widget>
+           <widget class="QListWidget" name="singlesListWidget"/>
           </item>
          </layout>
         </widget>
