@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>700</height>
+    <width>1400</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,6 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(:/images/background/images/background .png);
-background-position: center;
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -95,8 +94,8 @@ background: transparent;
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>717</width>
-           <height>418</height>
+           <width>1080</width>
+           <height>551</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -383,7 +382,7 @@ color: rgb(0, 85, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>1400</width>
      <height>22</height>
     </rect>
    </property>
