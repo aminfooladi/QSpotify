@@ -64,7 +64,7 @@ void ListenerPanel::lodeAlbums()
     ui->albumListWidget->setResizeMode(QListWidget::Adjust) ;
     ui->albumListWidget->setWrapping(false);
 
-    ui->albumListWidget->setFixedHeight(250);
+    ui->albumListWidget->setFixedHeight(230);
 
     for(int i=0 ; i<albums.size() ; i++)
     {
@@ -107,7 +107,7 @@ void ListenerPanel::lodeSingles()
     ui->singlesListWidget->setViewMode(QListWidget::IconMode);
     ui->singlesListWidget->setResizeMode(QListWidget::Adjust);
     ui->singlesListWidget->setWrapping(false);
-    ui->singlesListWidget->setFixedHeight(250);
+    ui->singlesListWidget->setFixedHeight(230);
 
     for (int i = 0; i < singles.size(); i++)
     {
@@ -139,7 +139,7 @@ void ListenerPanel::lodePlaylists()
     ui->playlistsListWidget->setViewMode(QListWidget::IconMode);
     ui->playlistsListWidget->setResizeMode(QListWidget::Adjust);
     ui->playlistsListWidget->setWrapping(false);
-    ui->playlistsListWidget->setFixedHeight(250);
+    ui->playlistsListWidget->setFixedHeight(230);
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -153,6 +153,12 @@ void ListenerPanel::lodePlaylists()
 
         ui->playlistsListWidget->addItem(item);
     }
+
+    QPixmap pixmap(":images/icon/images/addingIcon.png") ;
+    QIcon icon(pixmap) ;
+    QListWidgetItem * item = new QListWidgetItem(icon,"Add Playlist") ;
+    item->setData(Qt::UserRole, "addPlaylist");
+    ui->playlistsListWidget->addItem(item) ;
 }
 
 void ListenerPanel::on_OK_clicked()

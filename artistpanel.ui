@@ -17,7 +17,7 @@
    <string notr="true">background-image: url(:/images/background/images/background .png);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,2,0,0,0,0" columnstretch="1,4">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="1,2" columnstretch="1,4">
     <item row="0" column="1">
      <layout class="QGridLayout" name="gridLayout_4" rowstretch="4,1" columnstretch="4,1">
       <item row="0" column="1">
@@ -81,8 +81,9 @@ color: rgb(0, 85, 0);
        <item row="0" column="0">
         <widget class="QLabel" name="fullNameLabel_2">
          <property name="styleSheet">
-          <string notr="true">background: transparent;
-color: rgb(0, 85, 0);</string>
+          <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;</string>
          </property>
          <property name="text">
           <string>Full Name :</string>
@@ -103,6 +104,7 @@ color: rgb(0, 85, 0);</string>
         <widget class="QLabel" name="userNameLabel_2">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
 background: transparent;</string>
          </property>
          <property name="text">
@@ -124,6 +126,7 @@ background: transparent;</string>
         <widget class="QLabel" name="roleLabel_2">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
 background: transparent;</string>
          </property>
          <property name="text">
@@ -145,6 +148,7 @@ background: transparent;</string>
         <widget class="QLabel" name="biographyLabel_2">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
 background: transparent;</string>
          </property>
          <property name="text">
@@ -251,10 +255,82 @@ background: transparent;
            <x>0</x>
            <y>0</y>
            <width>1080</width>
-           <height>551</height>
+           <height>582</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>My Albums</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="myAlbumsListWidget">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px;
+color: rgb(0, 85, 0);
+background: transparent;
+</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>My Singles</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="mySinglesListWidget">
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px;
+color: rgb(0, 85, 0);
+background: transparent;
+</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>My Playlists : </string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QListWidget" name="playlistsListWidget">
             <property name="styleSheet">
@@ -264,6 +340,22 @@ padding: 5px;
 color: rgb(0, 85, 0);
 background: transparent;
 </string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Albums :</string>
             </property>
            </widget>
           </item>
@@ -277,6 +369,22 @@ color: rgb(0, 85, 0);
 background: transparent;
 </string>
             </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>Singles </string>
+            </property>
            </widget>
           </item>
           <item>
@@ -288,6 +396,9 @@ padding: 5px;
 color: rgb(0, 85, 0);
 background: transparent;
 </string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
             </property>
            </widget>
           </item>
@@ -312,7 +423,9 @@ color: rgb(0, 85, 0);
        <item row="0" column="0">
         <widget class="QLabel" name="fullNameLabel">
          <property name="styleSheet">
-          <string notr="true">background: transparent;</string>
+          <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;</string>
          </property>
          <property name="text">
           <string>Full Name :</string>
@@ -329,7 +442,9 @@ color: rgb(0, 85, 0);
        <item row="1" column="0">
         <widget class="QLabel" name="userNameLabel">
          <property name="styleSheet">
-          <string notr="true">background: transparent;</string>
+          <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;</string>
          </property>
          <property name="text">
           <string>User Name :</string>
@@ -346,7 +461,9 @@ color: rgb(0, 85, 0);
        <item row="2" column="0">
         <widget class="QLabel" name="biographyLabel">
          <property name="styleSheet">
-          <string notr="true">background: transparent;</string>
+          <string notr="true">color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+background: transparent;</string>
          </property>
          <property name="text">
           <string>Biography :</string>

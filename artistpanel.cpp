@@ -9,6 +9,7 @@ ArtistPanel::ArtistPanel(QWidget *parent)
     , ui(new Ui::ArtistPanel)
 {
     ui->setupUi(this);
+    ui->editInfoGroupBox->hide() ;
 }
 
 ArtistPanel::~ArtistPanel()
@@ -50,6 +51,8 @@ void ArtistPanel::setAccountInfo()
     this->lodeAlbums();
     this->lodeSingles();
     this->lodePlaylists();
+    this->loadMyAlbums();
+    this->loadMySingles();
 }
 
 void ArtistPanel::lodeAlbums()
@@ -62,7 +65,7 @@ void ArtistPanel::lodeAlbums()
     ui->albumListWidget->setResizeMode(QListWidget::Adjust) ;
     ui->albumListWidget->setWrapping(false);
 
-    ui->albumListWidget->setFixedHeight(250);
+    ui->albumListWidget->setFixedHeight(230);
 
     for(int i=0 ; i<albums.size() ; i++)
     {
@@ -105,7 +108,7 @@ void ArtistPanel::lodeSingles()
     ui->singlesListWidget->setViewMode(QListWidget::IconMode);
     ui->singlesListWidget->setResizeMode(QListWidget::Adjust);
     ui->singlesListWidget->setWrapping(false);
-    ui->singlesListWidget->setFixedHeight(250);
+    ui->singlesListWidget->setFixedHeight(230);
 
     for (int i = 0; i < singles.size(); i++)
     {
@@ -137,7 +140,7 @@ void ArtistPanel::lodePlaylists()
     ui->playlistsListWidget->setViewMode(QListWidget::IconMode);
     ui->playlistsListWidget->setResizeMode(QListWidget::Adjust);
     ui->playlistsListWidget->setWrapping(false);
-    ui->playlistsListWidget->setFixedHeight(250);
+    ui->playlistsListWidget->setFixedHeight(230);
 
     for (int i = 0; i < playlists.size(); i++)
     {
@@ -151,6 +154,102 @@ void ArtistPanel::lodePlaylists()
 
         ui->playlistsListWidget->addItem(item);
     }
+
+    QPixmap pixmap(":images/icon/images/addingIcon.png") ;
+    QIcon icon(pixmap) ;
+    QListWidgetItem * item = new QListWidgetItem(icon,"Add Playlist") ;
+    item->setData(Qt::UserRole, "addPlaylist");
+    ui->playlistsListWidget->addItem(item) ;
+}
+
+void ArtistPanel::loadMyAlbums()
+{
+    vector<Album> albums = database->albumRepo.getAlbums() ;
+    ui->myAlbumsListWidget->clear();
+    ui->myAlbumsListWidget->setIconSize(QSize(150, 170));
+    ui->myAlbumsListWidget->setGridSize(QSize(180, 200));
+    ui->myAlbumsListWidget->setViewMode(QListWidget::IconMode);
+    ui->myAlbumsListWidget->setResizeMode(QListWidget::Adjust);
+    ui->myAlbumsListWidget->setWrapping(false);
+    ui->myAlbumsListWidget->setFixedHeight(230);
+
+    for(int i=0 ; i<albums.size() ; i++ )
+    {
+        if(albums[i].getArtistId()==database->userAccount.getId())
+        {
+            QString imageAddres = albums[i].getCover() ;
+            QPixmap pixmap ;
+            if(QFile::exists(imageAddres))
+            {
+                pixmap.load(imageAddres) ;
+            }
+            else
+            {
+                pixmap.load(":/albums/images/albumDiffult.png");
+
+            }
+
+            QIcon icon(pixmap) ;
+            QListWidgetItem * item = new QListWidgetItem(icon,albums[i].getName()) ;
+            item->setData(Qt::UserRole , albums[i].getId()) ;
+
+            ui->albumListWidget->addItem(item) ;
+        }
+    }
+
+    QPixmap pixmap(":images/icon/images/addingIcon.png") ;
+    QIcon icon(pixmap) ;
+    QListWidgetItem * item = new QListWidgetItem(icon,"Add Album") ;
+    item->setData(Qt::UserRole, "addAlbum");
+    ui->myAlbumsListWidget->addItem(item) ;
+}
+
+void ArtistPanel::loadMySingles()
+{
+    vector<Song> allSongs = database->songRepo.getSongs();
+    vector<Song> mySingles;
+
+    for (int i = 0; i < allSongs.size(); i++)
+    {
+        if (allSongs[i].getAlbumId() == 0 && allSongs[i].getArtistId() == database->userAccount.getId())
+        {
+            mySingles.push_back(allSongs[i]);
+        }
+    }
+
+    ui->mySinglesListWidget->clear();
+    ui->mySinglesListWidget->setIconSize(QSize(150, 170));
+    ui->mySinglesListWidget->setGridSize(QSize(180, 200));
+    ui->mySinglesListWidget->setViewMode(QListWidget::IconMode);
+    ui->mySinglesListWidget->setResizeMode(QListWidget::Adjust);
+    ui->mySinglesListWidget->setWrapping(false);
+    ui->mySinglesListWidget->setFixedHeight(230);
+
+    for (int i = 0; i < mySingles.size(); i++)
+    {
+        QString imageAddres = mySingles[i].getCover();
+        QPixmap pixmap;
+        if (QFile::exists(imageAddres))
+        {
+            pixmap.load(imageAddres);
+        }
+        else
+        {
+            pixmap.load(":/songs/images/songDiffult.png");
+        }
+
+        QIcon icon(pixmap);
+        QListWidgetItem *item = new QListWidgetItem(icon, mySingles[i].getTitle());
+        item->setData(Qt::UserRole, mySingles[i].getId());
+
+        ui->mySinglesListWidget->addItem(item);
+    }
+
+    QPixmap addPixmap(":images/icon/images/addingIcon.png");
+    QIcon addIcon(addPixmap);
+    QListWidgetItem *addItem = new QListWidgetItem(addIcon, "Add Single");
+    addItem->setData(Qt::UserRole, "addSingle");
+    ui->mySinglesListWidget->addItem(addItem);
 }
 
 void ArtistPanel::on_editInfoButton_clicked()

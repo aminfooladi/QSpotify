@@ -24,6 +24,8 @@ public:
     void lodeAlbums() ;
     void lodeSingles();
     void lodePlaylists();
+    void loadMyAlbums();
+    void loadMySingles();
 
 signals:
     void goToLoginPage() ;

@@ -9,6 +9,7 @@
     </qresource>
     <qresource prefix="/images/icon">
         <file>images/Icon.png</file>
+        <file>images/addingIcon.png</file>
     </qresource>
     <qresource prefix="/images/logo">
         <file>images/Logo.png</file>
