@@ -5,6 +5,7 @@
 #include "database.h"
 #include "apppagge.h"
 #include "addsongwindow.h"
+#include "albumwindow.h"
 
 #include <QApplication>
 #include <QIcon>
@@ -25,6 +26,8 @@ int main(int argc, char *argv[])
     ListenerPanel listener;
     AddSongWindow addSong;
 
+    AlbumWindow *albumWindow = new AlbumWindow();
+
     login.setDatabase(&database);
     login.setPtrToPage(&page);
 
@@ -36,6 +39,9 @@ int main(int argc, char *argv[])
 
     listener.setDatabase(&database);
     listener.setPtrToPage(&page);
+
+    albumWindow->setDatabase(&database);
+    albumWindow->setPtrToPage(&page);
 
     QObject::connect(&login, &LoginWindow::loginSuccessful, [&]() {
 
@@ -80,9 +86,43 @@ int main(int argc, char *argv[])
         login.show();
     });
 
-    addSong.show();
-    //login.show();
-    //listener.show();
+    QObject::connect(&artist , &ArtistPanel::goToAlbumPage , [&](int albumID){
+        artist.hide();
+        albumWindow->setAlbumId(albumID);
+        albumWindow->setAccountInfo();
+        albumWindow->show();
+    });
+
+    QObject::connect(&listener , &ListenerPanel::goToAlbumPage , [&](int albumID){
+        artist.hide();
+        albumWindow->setAlbumId(albumID);
+        albumWindow->setAccountInfo();
+        albumWindow->show();
+    });
+
+    QObject::connect(albumWindow , &AlbumWindow::goBack , [&](){
+        albumWindow->hide();
+
+        switch (page)
+        {
+        case AppPage::Login:
+            login.show();
+            break;
+        case AppPage::Register:
+            reg.show();
+            break;
+        case AppPage::ArtistPanel:
+            artist.setAccountInfo();
+            artist.show();
+            break;
+        case AppPage::ListenerPanel:
+            listener.setAccountInfo();
+            listener.show();
+            break;
+        }
+    });
+
+    login.show();
 
     return a.exec();
 }

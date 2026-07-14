@@ -23,6 +23,10 @@ public:
 private slots:
     void on_selectFileButton_clicked();
 
+    void on_selectImageButton_clicked();
+
+    void on_saveButton_clicked();
+
 private:
     Ui::AddSongWindow *ui;
     Database* database;

@@ -244,3 +244,28 @@ void ListenerPanel::on_deleteAccountButton_clicked()
     }
 }
 
+
+void ListenerPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
+}
+
+
+void ListenerPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
+}

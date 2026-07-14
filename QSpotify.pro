@@ -12,7 +12,7 @@ SOURCES += \
     addsongwindow.cpp \
     album.cpp \
     albumrepository.cpp \
-    allbumwindow.cpp \
+    albumwindow.cpp \
     artistpanel.cpp \
     artistrepository.cpp \
     database.cpp \
@@ -34,7 +34,7 @@ HEADERS += \
     addsongwindow.h \
     album.h \
     albumrepository.h \
-    allbumwindow.h \
+    albumwindow.h \
     apppagge.h \
     artistpanel.h \
     artistrepository.h \
@@ -51,7 +51,7 @@ HEADERS += \
 
 FORMS += \
     addsongwindow.ui \
-    allbumwindow.ui \
+    albumwindow.ui \
     artistpanel.ui \
     listenerpanel.ui \
     loginwindow.ui \

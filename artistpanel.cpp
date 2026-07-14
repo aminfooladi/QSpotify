@@ -193,7 +193,7 @@ void ArtistPanel::loadMyAlbums()
             QListWidgetItem * item = new QListWidgetItem(icon,albums[i].getName()) ;
             item->setData(Qt::UserRole , albums[i].getId()) ;
 
-            ui->albumListWidget->addItem(item) ;
+            ui->myAlbumsListWidget->addItem(item);
         }
     }
 
@@ -331,5 +331,56 @@ void ArtistPanel::on_deleteAccountButton_clicked()
             QMessageBox::warning(this, "Error", "Something went wrong!");
         }
     }
+}
+
+void ArtistPanel::on_myAlbumsListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
+}
+
+
+void ArtistPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
+}
+
+
+void ArtistPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
+}
+
+
+void ArtistPanel::on_singlesListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addAlbum")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToAlbumPage(albumId);
+    this->close();
 }
 

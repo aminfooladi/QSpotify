@@ -87,7 +87,7 @@ void AddSongWindow::on_saveButton_clicked()
     QString genre = ui->genreLineEdit->text();
     QString fileAddress = ui->filePathLabel->text();
     int artistId = database->userAccount.getId();
-    int albumId ;
+    int albumId = this->albumId ;
     QString cover = ui->imagePathLabel->text();
 
 

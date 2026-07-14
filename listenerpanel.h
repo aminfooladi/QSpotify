@@ -5,6 +5,7 @@
 #include "apppagge.h"
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 
 namespace Ui {
 class ListenerPanel;
@@ -27,6 +28,7 @@ public:
 
 signals:
     void goToLoginPage() ;
+    void goToAlbumPage(int albumId);
 
 private slots:
     void on_OK_clicked();
@@ -38,6 +40,10 @@ private slots:
     void on_logoutButton_clicked();
 
     void on_deleteAccountButton_clicked();
+
+    void on_playlistsListWidget_itemClicked(QListWidgetItem *item);
+
+    void on_albumListWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Database * database ;
