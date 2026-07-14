@@ -9,6 +9,7 @@ CONFIG += c++17
 SOURCES += \
     account.cpp \
     accountrepository.cpp \
+    addsongwindow.cpp \
     album.cpp \
     albumrepository.cpp \
     allbumwindow.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     abstractrepository.h \
     account.h \
     accountrepository.h \
+    addsongwindow.h \
     album.h \
     albumrepository.h \
     allbumwindow.h \
@@ -48,6 +50,7 @@ HEADERS += \
     songwindow.h
 
 FORMS += \
+    addsongwindow.ui \
     allbumwindow.ui \
     artistpanel.ui \
     listenerpanel.ui \
