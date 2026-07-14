@@ -127,15 +127,6 @@ background: transparent;</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="artistLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border-radius: 10px;
-padding: 5px;</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="0">
        <widget class="QLabel" name="albumTitleLabel">
         <property name="styleSheet">
@@ -148,40 +139,7 @@ background: transparent;</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="albumTitleLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border-radius: 10px;
-padding: 5px;</string>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="0">
-       <widget class="QLabel" name="durationLabel">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 85, 0);
-font: 700 10pt &quot;Segoe UI&quot;;
-background: transparent;</string>
-        </property>
-        <property name="text">
-         <string>Duration :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLabel" name="durationLabel_4">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 85, 0);
-font: 700 10pt &quot;Segoe UI&quot;;
-background: transparent;</string>
-        </property>
-        <property name="text">
-         <string>00:00</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
        <widget class="QLabel" name="coverLabel">
         <property name="styleSheet">
          <string notr="true">color: rgb(0, 85, 0);
@@ -189,26 +147,11 @@ font: 700 10pt &quot;Segoe UI&quot;;
 background: transparent;</string>
         </property>
         <property name="text">
-         <string>Cover :</string>
+         <string>Cover  File :</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
-       <widget class="QLabel" name="coverLabel_2">
-        <property name="styleSheet">
-         <string notr="true">border: 1px solid rgb(0, 85, 0);
-border-radius: 10px;
-padding: 5px;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
+      <item row="6" column="0">
        <widget class="QLabel" name="fileLabel">
         <property name="styleSheet">
          <string notr="true">color: rgb(0, 85, 0);
@@ -220,7 +163,7 @@ background: transparent;</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item row="6" column="1">
        <layout class="QHBoxLayout" name="fileLayout">
         <item>
          <widget class="QLabel" name="filePathLabel">
@@ -236,7 +179,7 @@ padding: 5px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="selectFileButton_2">
+         <widget class="QPushButton" name="selectFileButton">
           <property name="styleSheet">
            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
 border: 1px solid rgb(0, 85, 0);
@@ -251,7 +194,7 @@ color: rgb(0, 85, 0);</string>
         </item>
        </layout>
       </item>
-      <item row="8" column="0" colspan="2">
+      <item row="7" column="0" colspan="2">
        <layout class="QHBoxLayout" name="buttonLayout_2">
         <item>
          <widget class="QPushButton" name="saveButton">
@@ -285,12 +228,67 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
         </item>
        </layout>
       </item>
-      <item row="9" column="0" colspan="2">
+      <item row="8" column="0" colspan="2">
        <widget class="QLabel" name="erorLabel">
         <property name="text">
          <string/>
         </property>
        </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(100, 100, 100);
+background-image: url(:/images/background/images/witeBackground.png);
+border-radius: 10px;
+padding: 5px;</string>
+          </property>
+          <property name="text">
+           <string>No file selected</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px 15px;
+color: rgb(0, 85, 0);</string>
+          </property>
+          <property name="text">
+           <string>Browse...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

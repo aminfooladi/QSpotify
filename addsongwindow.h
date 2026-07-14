@@ -1,6 +1,8 @@
 #ifndef ADDSONGWINDOW_H
 #define ADDSONGWINDOW_H
+#include "database.h"
 
+#include <QMediaPlayer>
 #include <QMainWindow>
 
 namespace Ui {
@@ -15,8 +17,18 @@ public:
     explicit AddSongWindow(QWidget *parent = nullptr);
     ~AddSongWindow();
 
+    void setDatabase(Database* database);
+    void setAlbumId(int albumId);
+
+private slots:
+    void on_selectFileButton_clicked();
+
 private:
     Ui::AddSongWindow *ui;
+    Database* database;
+    int albumId;
+    QString selectedFilePath;
+    QMediaPlayer* mediaPlayer;
 };
 
 #endif // ADDSONGWINDOW_H

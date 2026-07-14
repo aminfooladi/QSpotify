@@ -4,6 +4,7 @@
 #include "artistpanel.h"
 #include "database.h"
 #include "apppagge.h"
+#include "addsongwindow.h"
 
 #include <QApplication>
 #include <QIcon>
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     RegisterWindow reg;
     ArtistPanel artist;
     ListenerPanel listener;
+    AddSongWindow addSong;
 
     login.setDatabase(&database);
     login.setPtrToPage(&page);
@@ -78,7 +80,8 @@ int main(int argc, char *argv[])
         login.show();
     });
 
-    login.show();
+    addSong.show();
+    //login.show();
     //listener.show();
 
     return a.exec();
