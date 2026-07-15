@@ -53,9 +53,9 @@ font-weight: bold;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border: 2px solid rgb(60, 60, 60);
+           <string notr="true">border: 2px solid rgb(0, 85, 0);
 border-radius: 15px;
-background-color: rgba(255, 255, 255, 0.05);</string>
+</string>
           </property>
           <property name="text">
            <string>No Cover</string>
