@@ -31,7 +31,7 @@ void AlbumWindow::setAlbumId(int albumID)
     this->albumID = albumID ;
 }
 
-void AlbumWindow::setAccountInfo()
+void AlbumWindow::setPsgeInfo()
 {
     optional<Album> albumOp = this->database->albumRepo.search(this->albumID) ;
     if(albumOp.has_value())

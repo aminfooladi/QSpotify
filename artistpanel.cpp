@@ -348,7 +348,7 @@ void ArtistPanel::on_myAlbumsListWidget_itemClicked(QListWidgetItem *item)
 
 void ArtistPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addAlbum")
+    if(item->data(Qt::UserRole)=="addPlaylist")
     {
         return;
     }
@@ -374,13 +374,26 @@ void ArtistPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
 
 void ArtistPanel::on_singlesListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addAlbum")
+    if(item->data(Qt::UserRole)=="addSingle")
     {
         return;
     }
 
     int albumId = item->data(Qt::UserRole).toInt();
-    emit goToAlbumPage(albumId);
+    emit goToSongPage(albumId);
+    this->close();
+}
+
+
+void ArtistPanel::on_mySinglesListWidget_itemChanged(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addSingle")
+    {
+        return;
+    }
+
+    int albumId = item->data(Qt::UserRole).toInt();
+    emit goToSongPage(albumId);
     this->close();
 }
 

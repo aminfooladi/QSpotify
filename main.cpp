@@ -89,14 +89,14 @@ int main(int argc, char *argv[])
     QObject::connect(&artist , &ArtistPanel::goToAlbumPage , [&](int albumID){
         artist.hide();
         albumWindow->setAlbumId(albumID);
-        albumWindow->setAccountInfo();
+        albumWindow->setPsgeInfo();
         albumWindow->show();
     });
 
     QObject::connect(&listener , &ListenerPanel::goToAlbumPage , [&](int albumID){
         artist.hide();
         albumWindow->setAlbumId(albumID);
-        albumWindow->setAccountInfo();
+        albumWindow->setPsgeInfo();
         albumWindow->show();
     });
 

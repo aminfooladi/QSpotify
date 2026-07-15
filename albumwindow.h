@@ -21,7 +21,7 @@ public:
     void setDatabase(Database* database) ;
     void setPtrToPage(AppPage* page) ;
     void setAlbumId(int albumID) ;
-    void setAccountInfo() ;
+    void setPsgeInfo() ;
 
 signals:
     void goBack();
