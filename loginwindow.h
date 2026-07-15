@@ -24,6 +24,7 @@ public:
 signals:
     void loginSuccessful() ;
     void goToRegisterPage();
+
 private slots:
     void on_loginButton_clicked();
 

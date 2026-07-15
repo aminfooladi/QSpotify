@@ -14,6 +14,14 @@ SongWindow::SongWindow(QWidget *parent)
     this->mediaPlayer = new QMediaPlayer ;
     this->audioOutput = new QAudioOutput ;
     this->mediaPlayer->setAudioOutput(audioOutput) ;
+
+    connect(mediaPlayer, &QMediaPlayer::positionChanged, this, [&]() {
+                ui->horizontalSlider->setValue(mediaPlayer->position());
+            });
+
+    connect(mediaPlayer, &QMediaPlayer::durationChanged, this, [&]() {
+                ui->horizontalSlider->setMaximum(mediaPlayer->duration());
+            });
 }
 
 SongWindow::~SongWindow()
@@ -56,15 +64,62 @@ void SongWindow::setPageInfo()
         }
         else
         {
-            pixmap.load(":/albums/images/songDiffult.png");
+            pixmap.load(":/songs/images/songDiffult.png");
         }
 
         ui->coverLabel->setPixmap(pixmap.scaled( ui->coverLabel->size()));
 
-        QString audioFile = song.getFileAddress();
+        //QString audioFile = song.getFileAddress();
+        QString audioFile = "C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3" ;
         if (QFile::exists(audioFile))
         {
             mediaPlayer->setSource(QUrl::fromLocalFile(audioFile));
+            mediaPlayer->play();
         }
     }
 }
+
+void SongWindow::on_horizontalSlider_sliderMoved(int position)
+{
+    this->mediaPlayer->setPosition(position) ;
+}
+
+
+
+void SongWindow::on_playOrStoppushButton_clicked()
+{
+    if(mediaPlayer->isPlaying())
+    {
+        mediaPlayer->pause();
+    }
+    else
+    {
+        mediaPlayer->play();
+     }
+}
+
+
+void SongWindow::on_lastSongPushButton_clicked()
+{
+    int newPosition = mediaPlayer->position() - 10000;
+    if (newPosition < 0) newPosition = 0;
+    mediaPlayer->setPosition(newPosition);
+    ui->horizontalSlider->setValue(newPosition);
+}
+
+void SongWindow::on_nexSongPushButton_clicked()
+{
+    int newPosition = mediaPlayer->position() + 10000;
+    int duration = mediaPlayer->duration();
+    if (newPosition > duration) newPosition = duration;
+    mediaPlayer->setPosition(newPosition);
+    ui->horizontalSlider->setValue(newPosition);
+}
+
+
+void SongWindow::on_pushButton_clicked()
+{
+    emit goBack();
+    this->close();
+}
+

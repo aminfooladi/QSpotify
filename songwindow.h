@@ -22,6 +22,18 @@ public:
     void setPtrToPage(AppPage* page) ;
     void setSongId(int songID) ;
     void setPageInfo() ;
+signals:
+    void goBack();
+private slots:
+    void on_horizontalSlider_sliderMoved(int position);
+
+    void on_playOrStoppushButton_clicked();
+
+    void on_lastSongPushButton_clicked();
+
+    void on_nexSongPushButton_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::SongWindow *ui;

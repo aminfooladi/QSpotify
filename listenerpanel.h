@@ -29,6 +29,7 @@ public:
 signals:
     void goToLoginPage() ;
     void goToAlbumPage(int albumId);
+    void goToSongPage(int songId);
 
 private slots:
     void on_OK_clicked();
@@ -44,6 +45,8 @@ private slots:
     void on_playlistsListWidget_itemClicked(QListWidgetItem *item);
 
     void on_albumListWidget_itemClicked(QListWidgetItem *item);
+
+    void on_singlesListWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Database * database ;

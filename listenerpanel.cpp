@@ -269,3 +269,16 @@ void ListenerPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
     emit goToAlbumPage(albumId);
     this->close();
 }
+
+void ListenerPanel::on_singlesListWidget_itemClicked(QListWidgetItem *item)
+{
+    if(item->data(Qt::UserRole)=="addSingle")
+    {
+        return;
+    }
+
+    int songId = item->data(Qt::UserRole).toInt();
+    emit goToSongPage(songId);
+    this->close();
+}
+

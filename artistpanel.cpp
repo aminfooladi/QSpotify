@@ -379,8 +379,8 @@ void ArtistPanel::on_singlesListWidget_itemClicked(QListWidgetItem *item)
         return;
     }
 
-    int albumId = item->data(Qt::UserRole).toInt();
-    emit goToSongPage(albumId);
+    int songId = item->data(Qt::UserRole).toInt();
+    emit goToSongPage(songId);
     this->close();
 }
 
@@ -392,8 +392,8 @@ void ArtistPanel::on_mySinglesListWidget_itemChanged(QListWidgetItem *item)
         return;
     }
 
-    int albumId = item->data(Qt::UserRole).toInt();
-    emit goToSongPage(albumId);
+    int songId = item->data(Qt::UserRole).toInt();
+    emit goToSongPage(songId);
     this->close();
 }
 
