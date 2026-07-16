@@ -247,7 +247,7 @@ void ListenerPanel::on_deleteAccountButton_clicked()
 
 void ListenerPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addAlbum")
+    if(item->data(Qt::UserRole)=="addPlaylist")
     {
         return;
     }

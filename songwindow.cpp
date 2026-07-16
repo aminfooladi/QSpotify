@@ -74,7 +74,7 @@ void SongWindow::setPageInfo()
         if (QFile::exists(audioFile))
         {
             mediaPlayer->setSource(QUrl::fromLocalFile(audioFile));
-            mediaPlayer->play();
+            if(!mediaPlayer->isPlaying()) mediaPlayer->play();
         }
     }
 }
@@ -83,7 +83,6 @@ void SongWindow::on_horizontalSlider_sliderMoved(int position)
 {
     this->mediaPlayer->setPosition(position) ;
 }
-
 
 
 void SongWindow::on_playOrStoppushButton_clicked()

@@ -54,14 +54,36 @@ void AlbumWindow::setPsgeInfo()
 
         ui->coverLabel->setPixmap(pixmap.scaled( ui->coverLabel->size()));
         ui->songsTable->setRowCount(songs.size());
+
+        ui->songsTable->verticalHeader()->setDefaultSectionSize(40);
+        ui->songsTable->verticalHeader()->setVisible(false);
+
+        ui->songsTable->setColumnWidth(0, 250);
+        ui->songsTable->setColumnWidth(1, 150);
+        ui->songsTable->setColumnWidth(2, 80);
+        ui->songsTable->setColumnWidth(3, 80);
+        ui->songsTable->setColumnWidth(4, 80);
+
+        ui->songsTable->setShowGrid(false);
+
         for (int i = 0; i < songs.size(); i++)
         {
-            QTableWidgetItem *numItem = new QTableWidgetItem(QString::number(i + 1));
-            numItem->setTextAlignment(Qt::AlignCenter);
-            ui->songsTable->setItem(i, 0, numItem);
+            ui->songsTable->setItem(i, 0, new QTableWidgetItem(songs[i].getTitle()));
 
-            QTableWidgetItem *titleItem = new QTableWidgetItem(songs[i].getTitle());
-            ui->songsTable->setItem(i, 1, titleItem);
+            QString info = QString::number(songs[i].getReleaseYear()) + " | " + songs[i].getGenre();
+            ui->songsTable->setItem(i, 1, new QTableWidgetItem(info));
+
+            QPushButton* playBtn = new QPushButton("▶ Play");
+            playBtn->setFixedSize(60, 20);
+            ui->songsTable->setCellWidget(i, 2, playBtn);
+
+            QPushButton* editBtn = new QPushButton("✎ Edit");
+            editBtn->setFixedSize(60, 20);
+            ui->songsTable->setCellWidget(i, 3, editBtn);
+
+            QPushButton* deleteBtn = new QPushButton("✕ Delete");
+            deleteBtn->setFixedSize(60, 20);
+            ui->songsTable->setCellWidget(i, 4, deleteBtn);
         }
     }
 }

@@ -17,7 +17,7 @@
    <string notr="true">background-image: url(:/images/background/images/background .png);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0,100" columnstretch="0,0">
+   <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,3,10" columnstretch="0,0">
     <item row="2" column="1">
      <layout class="QGridLayout" name="gridLayout" rowstretch="2,0,0,0,3" columnstretch="2,1,2,1">
       <item row="4" column="0">
@@ -271,7 +271,7 @@ border-radius: 15px;
      </layout>
     </item>
     <item row="1" column="1">
-     <layout class="QGridLayout" name="gridLayout_3" rowstretch="2,1" columnstretch="6,2">
+     <layout class="QGridLayout" name="gridLayout_3" rowstretch="5" columnstretch="2,1">
       <item row="0" column="1">
        <widget class="QLabel" name="label">
         <property name="styleSheet">
@@ -293,19 +293,6 @@ border: none;</string>
          <size>
           <width>40</width>
           <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="1">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Orientation::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
          </size>
         </property>
        </spacer>
