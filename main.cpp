@@ -7,6 +7,7 @@
 #include "addsongwindow.h"
 #include "albumwindow.h"
 #include "songwindow.h"
+#include"addalbum.h"
 
 #include <QApplication>
 #include <QIcon>
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
     ArtistPanel artist;
     ListenerPanel listener;
     AddSongWindow addSong;
-
+    AddAlbum addAlbum;
     AlbumWindow *albumWindow = new AlbumWindow;
     SongWindow *songWindow = new SongWindow ;
 
@@ -41,6 +42,9 @@ int main(int argc, char *argv[])
 
     listener.setDatabase(&database);
     listener.setPtrToPage(&page);
+
+    addAlbum.setDatabase(&database);
+    addAlbum.setPtrToPage(&page);
 
     albumWindow->setDatabase(&database);
     albumWindow->setPtrToPage(&page);
@@ -168,6 +172,18 @@ int main(int argc, char *argv[])
         songWindow->setSongId(songID);
         songWindow->setPageInfo();
         songWindow->show();
+    });
+
+    QObject::connect(&artist , &ArtistPanel::goToAddAlbum , [&](){
+        artist.hide();
+        addAlbum.setPageInfo();
+        addAlbum.show();
+    });
+
+    QObject::connect(&addAlbum , &AddAlbum::goToArtistPanel , [&](){
+        addAlbum.hide();
+        artist.setAccountInfo();
+        artist.show();
     });
 
     login.show();

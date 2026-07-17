@@ -337,6 +337,8 @@ void ArtistPanel::on_myAlbumsListWidget_itemClicked(QListWidgetItem *item)
 {
     if(item->data(Qt::UserRole)=="addAlbum")
     {
+        emit goToAddAlbum();
+        this->close();
         return;
     }
 

@@ -33,6 +33,7 @@ signals:
     void goToLoginPage() ;
     void goToAlbumPage(int albumId);
     void goToSongPage(int songId);
+    void goToAddAlbum();
 
 private slots:
     void on_editInfoButton_clicked();
