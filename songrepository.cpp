@@ -48,6 +48,30 @@ bool SongRepository::remove(int ID)
     return false ;
 }
 
+int SongRepository::serchSongByName(QString name)
+{
+    for ( int i=0 ; i<this->songs.size() ; i++ )
+    {
+        if ( songs[i].getTitle()==name )
+        {
+            return songs[i].getId() ;
+        }
+    }
+    return 0 ;
+}
+
+int SongRepository::serchSongByFileAddress(QString address)
+{
+    for ( int i=0 ; i<this->songs.size() ; i++ )
+    {
+        if ( songs[i].getFileAddress()==address )
+        {
+            return songs[i].getId() ;
+        }
+    }
+    return 0 ;
+}
+
 std::vector<Song> SongRepository::getSongs()
 {
     return this->songs ;

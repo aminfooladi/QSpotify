@@ -23,6 +23,8 @@ public:
     std::vector<Song> getByPlaylist(int playlisID);
     std::vector<Song> getByLikedSongs(int listenerID) ;
 
+    int serchSongByName(QString name);
+    int serchSongByFileAddress(QString address);
     std::vector<Song> getSongs() ;
 };
 

@@ -5,7 +5,7 @@
 4,Amin,amin,Music lover,1234,Listener
 5,Reza,reza,Listening to music everyday,1234,Listener
 6,Narges,narges,Classic music fan,1234,Listener
-35
+28
 1,Shahr-e-Ghahreman,1400,Rock,song1.mp3,1,1,
 2,Gole Sorkh,1400,Pop,song2.mp3,1,1,
 3,Biya To,1400,Pop,song3.mp3,1,1,
@@ -33,15 +33,8 @@
 25,Neon Lights,1402,Electronic,song25.mp3,3,7,
 26,Alone,1402,Acoustic,song26.mp3,3,0,
 27,Dreams,1402,Electronic,song27.mp3,3,0,
-28,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-29,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-30,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-31,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-32,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-33,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-34,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-35,cfyhn,1402,vhjhm111111146,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,3,
-7
+28,amin,1402,,C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3,1,8,
+8
 1,Shahr-e-Ghahreman,1,album1.jpg
 2,Khaterat,1,album2.jpg
 3,Bahar,1,album3.jpg
@@ -49,6 +42,7 @@
 5,Asheghaneh,2,album5.jpg
 6,Rock Night,3,album6.jpg
 7,Electric Dreams,3,album7.jpg
+8,sli,1,
 5
 1,My Favorites,4,0,
 2,Workout,4,0,

@@ -129,11 +129,24 @@ void AddSongWindow::on_saveButton_clicked()
         return;
     }
 
+    if(this->database->songRepo.serchSongByName(title))
+    {
+        ui->erorLabel->setText("A song with this title already exists!");
+        return ;
+    }
+
+
     QString fileAddress = newSong.getFileAddress();
     if (fileAddress.isEmpty() || fileAddress == "No file selected")
     {
         ui->erorLabel->setText("Please select an audio file!");
         return;
+    }
+
+    if(this->database->songRepo.serchSongByFileAddress(fileAddress))
+    {
+        ui->erorLabel->setText("A song with this address already exists!");
+        return ;
     }
 
     newSong.setTitle(title);
