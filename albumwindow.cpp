@@ -120,10 +120,10 @@ void AlbumWindow::on_backButton_clicked()
     this->close();
 }
 
-
-
-void AlbumWindow::on_pushButton_clicked()
+void AlbumWindow::on_addSongpushButton_clicked()
 {
-
+    emit goToAddSong(this->albumID);
+    this->close();
+    return;
 }
 

@@ -247,8 +247,8 @@ void ArtistPanel::loadMySingles()
 
     QPixmap addPixmap(":images/icon/images/addingIcon.png");
     QIcon addIcon(addPixmap);
-    QListWidgetItem *addItem = new QListWidgetItem(addIcon, "Add Single");
-    addItem->setData(Qt::UserRole, "addSingle");
+    QListWidgetItem *addItem = new QListWidgetItem(addIcon, "Add Singles");
+    addItem->setData(Qt::UserRole, "addSingles");
     ui->mySinglesListWidget->addItem(addItem);
 }
 
@@ -376,21 +376,18 @@ void ArtistPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
 
 void ArtistPanel::on_singlesListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addSingle")
-    {
-        return;
-    }
-
     int songId = item->data(Qt::UserRole).toInt();
     emit goToSongPage(songId);
     this->close();
 }
 
 
-void ArtistPanel::on_mySinglesListWidget_itemChanged(QListWidgetItem *item)
+void ArtistPanel::on_mySinglesListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addSingle")
+    if(item->data(Qt::UserRole)=="addSingles")
     {
+        emit goToAddSong();
+        this->close();
         return;
     }
 

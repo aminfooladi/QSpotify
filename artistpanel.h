@@ -34,6 +34,7 @@ signals:
     void goToAlbumPage(int albumId);
     void goToSongPage(int songId);
     void goToAddAlbum();
+    void goToAddSong() ;
 
 private slots:
     void on_editInfoButton_clicked();
@@ -54,7 +55,7 @@ private slots:
 
     void on_singlesListWidget_itemClicked(QListWidgetItem *item);
 
-    void on_mySinglesListWidget_itemChanged(QListWidgetItem *item);
+    void on_mySinglesListWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Database * database ;

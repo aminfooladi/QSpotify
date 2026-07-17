@@ -197,21 +197,6 @@ color: rgb(0, 85, 0);</string>
       <item row="7" column="0" colspan="2">
        <layout class="QHBoxLayout" name="buttonLayout_2">
         <item>
-         <widget class="QPushButton" name="saveButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
-border-radius: 10px;
-padding: 8px 25px;
-color: rgb(0, 85, 0);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Save</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="cancelButton">
           <property name="styleSheet">
            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
@@ -223,6 +208,21 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
           </property>
           <property name="text">
            <string>Cancel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saveButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 25px;
+color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Save</string>
           </property>
          </widget>
         </item>

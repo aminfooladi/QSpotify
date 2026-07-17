@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QDir>
+#include <QCoreApplication>
 
 using namespace std;
 
@@ -27,6 +28,20 @@ AddSongWindow::~AddSongWindow()
 void AddSongWindow::setDatabase(Database* database)
 {
     this->database = database;
+    ui->label_2->setText(database->userAccount.getFullName());
+
+    if (albumId > 0)
+    {
+        auto album = database->albumRepo.search(albumId);
+        if (album.has_value())
+        {
+            ui->label->setText(album.value().getName());
+        }
+    }
+    if (albumId == 0)
+    {
+        ui->label->setText("Singles");
+    }
 }
 
 void AddSongWindow::setAlbumId(int albumId)
@@ -48,48 +63,102 @@ void AddSongWindow::on_selectFileButton_clicked()
         return;
     }
 
-    ui->filePathLabel->setText(QFileInfo(filePath).fileName());
+    QString songsFolder = QCoreApplication::applicationDirPath() + "/songs/";
 
-    QString fileName = QFileInfo(filePath).baseName();
+    QFileInfo fileInfo(filePath);
+    QString fileName = fileInfo.fileName();
+    QString destPath = songsFolder + fileName;
 
+    if (QFile::copy(filePath, destPath))
+    {
+        newSong.setFileAddress(destPath);
+        ui->filePathLabel->setText(fileName);
+    }
+    else
+    {
+        newSong.setFileAddress(filePath);
+        ui->filePathLabel->setText(fileName);
+    }
+
+    QString baseName = fileInfo.baseName();
     if (ui->titleLineEdit->text().isEmpty())
     {
-        ui->titleLineEdit->setText(fileName);
+        ui->titleLineEdit->setText(baseName);
     }
 }
+
+// ===== انتخاب کاور آهنگ =====
 void AddSongWindow::on_selectImageButton_clicked()
 {
     QString imagePath = QFileDialog::getOpenFileName(
         this,
-        "");
+        "Select Song Cover",
+        "",
+        "Images (*.png *.jpg *.jpeg *.bmp *.gif)"
+        );
 
     if (imagePath.isEmpty())
     {
         return;
     }
 
-    ui->filePathLabel->setText(QFileInfo(imagePath).fileName());
+    QString songsFolder = QCoreApplication::applicationDirPath() + "/songs/";
 
-    QString fileName = QFileInfo(imagePath).baseName();
+    QFileInfo fileInfo(imagePath);
+    QString fileName = fileInfo.fileName();
+    QString destPath = songsFolder + fileName;
 
-    if (ui->titleLineEdit->text().isEmpty())
+    if (QFile::copy(imagePath, destPath))
     {
-        ui->titleLineEdit->setText(fileName);
+        newSong.setCover(destPath);
+        ui->imagePathLabel->setText(fileName);
+    }
+    else
+    {
+        newSong.setCover(imagePath);
+        ui->imagePathLabel->setText(fileName);
     }
 }
 
-
 void AddSongWindow::on_saveButton_clicked()
 {
-    vector<Song> songs = database->songRepo.getByArtist(database->userAccount.getId()) ;
-    QString title = ui->titleLineEdit->text();
-    int releaseYear = ui->yearSpinBox->value();
-    QString genre = ui->genreLineEdit->text();
-    QString fileAddress = ui->filePathLabel->text();
-    int artistId = database->userAccount.getId();
-    int albumId = this->albumId ;
-    QString cover = ui->imagePathLabel->text();
+    QString title = ui->titleLineEdit->text().trimmed();
+    if (title.isEmpty())
+    {
+        ui->erorLabel->setText("Please enter song title!");
+        return;
+    }
 
+    QString fileAddress = newSong.getFileAddress();
+    if (fileAddress.isEmpty() || fileAddress == "No file selected")
+    {
+        ui->erorLabel->setText("Please select an audio file!");
+        return;
+    }
 
+    newSong.setTitle(title);
+    newSong.setReleaseYear(ui->yearSpinBox->value());
+    newSong.setGenre(ui->genreLineEdit->text().trimmed());
+    newSong.setArtistId(database->userAccount.getId());
+    newSong.setAlbumId(this->albumId);
+
+    int songId = database->songRepo.save(newSong);
+
+    if (songId > 0)
+    {
+        database->saveAll();
+
+        emit goBack(this->albumId);
+        this->close();
+    }
+    else
+    {
+        ui->erorLabel->setText("Failed to save song!");
+    }
 }
 
+void AddSongWindow::on_cancelButton_clicked()
+{
+    emit goBack(this->albumId);
+    this->close();
+}

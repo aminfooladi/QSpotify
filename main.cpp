@@ -186,6 +186,51 @@ int main(int argc, char *argv[])
         artist.show();
     });
 
+    QObject::connect(albumWindow , &AlbumWindow::goToAddSong , [&](int albumID){
+        albumWindow->hide();
+        addSong.setAlbumId(albumID);
+        addSong.setDatabase(&database);
+        addSong.show();
+    });
+
+    QObject::connect(&artist , &ArtistPanel::goToAddSong , [&](){
+        albumWindow->hide();
+        addSong.setAlbumId(0);
+        addSong.setDatabase(&database);
+        addSong.show();
+    });
+
+    QObject::connect(&addSong , &AddSongWindow::goBack , [&](int albumID){
+        addSong.hide();
+
+        if(albumID==0)
+        {
+            switch (page)
+            {
+            case AppPage::Login:
+                login.show();
+                break;
+            case AppPage::Register:
+                reg.show();
+                break;
+            case AppPage::ArtistPanel:
+                artist.setAccountInfo();
+                artist.show();
+                break;
+            case AppPage::ListenerPanel:
+                listener.setAccountInfo();
+                listener.show();
+                break;
+            }
+        }
+        else
+        {
+            albumWindow->setAlbumId(albumID);
+            albumWindow->setPsgeInfo();
+            albumWindow->show();
+        }
+    });
+
     login.show();
 
     return a.exec();

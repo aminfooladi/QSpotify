@@ -19,7 +19,8 @@ public:
 
     void setDatabase(Database* database);
     void setAlbumId(int albumId);
-
+signals:
+    void goBack(int albumID);
 private slots:
     void on_selectFileButton_clicked();
 
@@ -27,12 +28,15 @@ private slots:
 
     void on_saveButton_clicked();
 
+    void on_cancelButton_clicked();
+
 private:
     Ui::AddSongWindow *ui;
     Database* database;
     int albumId;
     QString selectedFilePath;
     QMediaPlayer* mediaPlayer;
+    Song newSong;
 };
 
 #endif // ADDSONGWINDOW_H
