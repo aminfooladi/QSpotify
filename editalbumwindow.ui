@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditAlbumWindow</class>
+ <widget class="QMainWindow" name="EditAlbumWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="1" column="2">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+      <item>
+       <widget class="QLabel" name="titleLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 14pt &quot;Segoe UI&quot;;
+background: transparent;
+text-align: center;</string>
+        </property>
+        <property name="text">
+         <string>Edit Album</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="coverPreviewLabel">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: 2px solid rgb(0, 85, 0);
+border-radius: 15px;
+background-color: rgba(255, 255, 255, 0.5);</string>
+          </property>
+          <property name="text">
+           <string>No Cover</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="nameLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Album Name :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="nameLineEdit">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border-radius: 10px;
+padding: 5px;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="coverLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Cover Image :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <layout class="QHBoxLayout" name="coverLayout">
+          <item>
+           <widget class="QLabel" name="coverPathLabel">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(100, 100, 100);
+background-image: url(:/images/background/images/witeBackground.png);
+border-radius: 10px;
+padding: 5px;</string>
+            </property>
+            <property name="text">
+             <string>No file selected</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="selectCoverButton">
+            <property name="styleSheet">
+             <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 5px 15px;
+color: rgb(0, 85, 0);</string>
+            </property>
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="buttonLayout">
+        <item>
+         <widget class="QPushButton" name="cancelButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(200, 0, 0);
+border-radius: 10px;
+padding: 8px 25px;
+color: rgb(200, 0, 0);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saveButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 25px;
+color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Save Changes</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="errorLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(216, 0, 0);
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
