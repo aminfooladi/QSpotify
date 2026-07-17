@@ -20,5 +20,9 @@
     </qresource>
     <qresource prefix="/songs">
         <file>images/songDiffult.png</file>
+        <file>images/last10sOfSongIcon.png</file>
+        <file>images/next10sOfSongIcon.png</file>
+        <file>images/playSongBtnIcon.png</file>
+        <file>images/StopSongIcon.png</file>
     </qresource>
 </RCC>

@@ -75,15 +75,41 @@ void AlbumWindow::setPsgeInfo()
 
             QPushButton* playBtn = new QPushButton("▶ Play");
             playBtn->setFixedSize(60, 20);
+
+            playBtn->setStyleSheet(
+                "background: transparent;"
+                "border: 1px solid rgb(0, 85, 0);"
+                "border-radius: 10px;"
+                "color: rgb(0, 85, 0);");
+
+
             ui->songsTable->setCellWidget(i, 2, playBtn);
+
+            connect(playBtn, &QPushButton::clicked, this, [this, i, songs]() {
+                emit goToSongPage(songs[i].getId());
+                this->close();
+            });
 
             QPushButton* editBtn = new QPushButton("✎ Edit");
             editBtn->setFixedSize(60, 20);
             ui->songsTable->setCellWidget(i, 3, editBtn);
 
+            editBtn->setStyleSheet(
+                "background: transparent;"
+                "border: 1px solid rgb(89, 89, 89);"
+                "border-radius: 10px;"
+                "color: rgb(89, 89, 89);");
+
             QPushButton* deleteBtn = new QPushButton("✕ Delete");
             deleteBtn->setFixedSize(60, 20);
             ui->songsTable->setCellWidget(i, 4, deleteBtn);
+
+            deleteBtn->setStyleSheet(
+                "background: transparent;"
+                "border: 1px solid rgb(181, 0, 3);"
+                "border-radius: 10px;"
+                "color: rgb(181, 0, 3);");
+
         }
     }
 }
@@ -92,5 +118,12 @@ void AlbumWindow::on_backButton_clicked()
 {
     emit goBack();
     this->close();
+}
+
+
+
+void AlbumWindow::on_pushButton_clicked()
+{
+
 }
 

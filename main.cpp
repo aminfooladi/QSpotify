@@ -163,6 +163,13 @@ int main(int argc, char *argv[])
         }
     });
 
+    QObject::connect(albumWindow , &AlbumWindow::goToSongPage , [&](int songID){
+        albumWindow->hide();
+        songWindow->setSongId(songID);
+        songWindow->setPageInfo();
+        songWindow->show();
+    });
+
     login.show();
 
     return a.exec();

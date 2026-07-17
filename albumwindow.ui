@@ -23,7 +23,7 @@
       <item row="0" column="0">
        <widget class="QPushButton" name="backButton">
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+         <string notr="true">background: transparent;
 border: 1px solid rgb(0, 85, 0);
 border-radius: 10px;
 padding: 8px 20px;
@@ -123,7 +123,20 @@ background: transparent;
          </layout>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayout_3" rowstretch="5,6" columnstretch="6,5">
+         <layout class="QGridLayout" name="gridLayout_3" rowstretch="5,6" columnstretch="2,1">
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item row="0" column="1">
            <widget class="QLabel" name="label">
             <property name="styleSheet">
@@ -149,18 +162,85 @@ border: none;</string>
             </property>
            </spacer>
           </item>
-          <item row="0" column="0">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+          <item row="1" column="0">
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="1">
+             <widget class="QPushButton" name="editAlbumpushButton">
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 20px;
+color: rgb(0, 85, 0);
+font-weight: bold;
+</string>
+              </property>
+              <property name="text">
+               <string>Edit Album</string>
+              </property>
+              <property name="icon">
+               <iconset theme="QIcon::ThemeIcon::MailMessageNew"/>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>25</width>
+                <height>25</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="addSongpushButton">
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 20px;
+color: rgb(0, 85, 0);
+font-weight: bold;
+</string>
+              </property>
+              <property name="text">
+               <string>Add Song</string>
+              </property>
+              <property name="icon">
+               <iconset theme="QIcon::ThemeIcon::ListAdd"/>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>25</width>
+                <height>25</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

@@ -4,6 +4,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QFile>
+#include <QSize>
 #include <QIcon>
 using namespace std;
 SongWindow::SongWindow(QWidget *parent)
@@ -89,12 +90,22 @@ void SongWindow::on_playOrStoppushButton_clicked()
 {
     if(mediaPlayer->isPlaying())
     {
+        QPixmap pixmap(":/songs/images/playSongBtnIcon.png");
+        QIcon icon(pixmap);
+        ui->playOrStoppushButton->setIcon(icon);
+        ui->playOrStoppushButton->setFixedSize(80, 80);
+        ui->playOrStoppushButton->setIconSize(QSize(80, 80));
         mediaPlayer->pause();
     }
     else
     {
+        QPixmap pixmap(":/songs/images/StopSongIcon.png");
+        QIcon icon(pixmap);
+        ui->playOrStoppushButton->setIcon(icon);
+        ui->playOrStoppushButton->setFixedSize(80, 80);
+        ui->playOrStoppushButton->setIconSize(QSize(80, 80));
         mediaPlayer->play();
-     }
+    }
 }
 
 
