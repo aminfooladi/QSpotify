@@ -59,3 +59,15 @@ vector<Album> AlbumRepository::getAlbums(int artistID)
 }
 
 std::vector<Album> AlbumRepository::getAlbums() { return this->albums ; }
+
+int AlbumRepository::searchByName(QString name)
+{
+    for ( int i=0 ; i<albums.size() ; i++ )
+    {
+        if ( albums[i].getName()==name )
+        {
+            return albums[i].getId() ;
+        }
+    }
+    return 0 ;
+}

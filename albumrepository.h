@@ -20,6 +20,8 @@ public:
     std::vector<Album> getAlbums(int artistID) ;
 
     std::vector<Album> getAlbums() ;
+
+    int searchByName(QString name) ;
 };
 
 #endif // ALBUMREPOSITORY_H

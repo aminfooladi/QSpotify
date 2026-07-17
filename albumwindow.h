@@ -27,11 +27,14 @@ signals:
     void goBack();
     void goToSongPage(int songID) ;
     void goToAddSong(int albumID) ;
+    void goToEditAlbumWindow(int albumID);
 
 private slots:
     void on_backButton_clicked();
 
     void on_addSongpushButton_clicked();
+
+    void on_editAlbumpushButton_clicked();
 
 private:
     Ui::AlbumWindow *ui;

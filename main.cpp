@@ -8,6 +8,7 @@
 #include "albumwindow.h"
 #include "songwindow.h"
 #include"addalbum.h"
+#include "editalbumwindow.h"
 
 #include <QApplication>
 #include <QIcon>
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
     ListenerPanel listener;
     AddSongWindow addSong;
     AddAlbum addAlbum;
+    EditAlbumWindow* editAlbum = new EditAlbumWindow ;
     AlbumWindow *albumWindow = new AlbumWindow;
     SongWindow *songWindow = new SongWindow ;
 
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
 
     songWindow->setDatabase(&database);
     songWindow->setPtrToPage(&page);
+
+    editAlbum->setDatabase(&database);
 
     QObject::connect(&login, &LoginWindow::loginSuccessful, [&]() {
 
@@ -229,6 +233,27 @@ int main(int argc, char *argv[])
             albumWindow->setPsgeInfo();
             albumWindow->show();
         }
+    });
+
+    QObject::connect(albumWindow , &AlbumWindow::goToEditAlbumWindow , [&](int albumID){
+        albumWindow->hide();
+        editAlbum->setAlbumId(albumID);
+        editAlbum->loadAlbumInfo();
+        editAlbum->show();
+    });
+
+    QObject::connect(editAlbum , &EditAlbumWindow::albumUpdated , [&](int albumID){
+        editAlbum->hide();
+        albumWindow->setAlbumId(albumID);
+        albumWindow->setPsgeInfo();
+        albumWindow->show();
+    });
+
+    QObject::connect(editAlbum , &EditAlbumWindow::goBack , [&](int albumID){
+        editAlbum->hide();
+        albumWindow->setAlbumId(albumID);
+        albumWindow->setPsgeInfo();
+        albumWindow->show();
     });
 
     login.show();

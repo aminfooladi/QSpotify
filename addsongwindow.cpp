@@ -87,7 +87,6 @@ void AddSongWindow::on_selectFileButton_clicked()
     }
 }
 
-// ===== انتخاب کاور آهنگ =====
 void AddSongWindow::on_selectImageButton_clicked()
 {
     QString imagePath = QFileDialog::getOpenFileName(

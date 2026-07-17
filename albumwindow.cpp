@@ -127,3 +127,11 @@ void AlbumWindow::on_addSongpushButton_clicked()
     return;
 }
 
+
+void AlbumWindow::on_editAlbumpushButton_clicked()
+{
+    emit goToEditAlbumWindow(this->albumID);
+    this->close();
+    return;
+}
+
