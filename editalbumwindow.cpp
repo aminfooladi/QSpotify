@@ -94,6 +94,11 @@ void EditAlbumWindow::on_selectCoverButton_clicked()
 
 void EditAlbumWindow::on_saveButton_clicked()
 {
+    if(database->userAccount.getId() != database->albumRepo.search(this->albumId).value().getArtistId())
+    {
+        ui->errorLabel->setText("You can not edit this album !!");
+        return;
+    }
     QString newName = ui->nameLineEdit->text().trimmed();
     if (newName.isEmpty())
     {

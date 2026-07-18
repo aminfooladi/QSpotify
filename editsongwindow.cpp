@@ -125,6 +125,11 @@ void EditSongWindow::on_selectCoverButton_clicked()
 
 void EditSongWindow::on_saveButton_clicked()
 {
+    if(database->userAccount.getId() != database->songRepo.search(this->songId).value().getArtistId())
+    {
+        ui->errorLabel->setText("You can not edit this song !!");
+        return;
+    }
     QString newTitle = ui->titleLineEdit->text().trimmed();
     if (newTitle.isEmpty())
     {
