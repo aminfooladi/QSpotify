@@ -339,6 +339,31 @@ background: transparent;</string>
         </item>
        </layout>
       </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="styleSheet">
+         <string notr="true">background: transparent;
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 20px;
+color: rgb(0, 85, 0);
+font-weight: bold;
+</string>
+        </property>
+        <property name="text">
+         <string>Edit Song</string>
+        </property>
+        <property name="icon">
+         <iconset theme="QIcon::ThemeIcon::MailMessageNew"/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="0" column="0" colspan="2">

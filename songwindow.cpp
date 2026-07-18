@@ -133,3 +133,10 @@ void SongWindow::on_pushButton_clicked()
     this->close();
 }
 
+
+void SongWindow::on_pushButton_2_clicked()
+{
+    emit gotoEditSong(this->songID);
+    this->close();
+}
+

@@ -9,6 +9,7 @@
 #include "songwindow.h"
 #include"addalbum.h"
 #include "editalbumwindow.h"
+#include "editsongwindow.h"
 
 #include <QApplication>
 #include <QIcon>
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     AddSongWindow addSong;
     AddAlbum addAlbum;
     EditAlbumWindow* editAlbum = new EditAlbumWindow ;
+    EditSongWindow * editSong = new EditSongWindow ;
     AlbumWindow *albumWindow = new AlbumWindow;
     SongWindow *songWindow = new SongWindow ;
 
@@ -55,6 +57,8 @@ int main(int argc, char *argv[])
     songWindow->setPtrToPage(&page);
 
     editAlbum->setDatabase(&database);
+
+    editSong->setDatabase(&database);
 
     QObject::connect(&login, &LoginWindow::loginSuccessful, [&]() {
 
@@ -254,6 +258,37 @@ int main(int argc, char *argv[])
         albumWindow->setAlbumId(albumID);
         albumWindow->setPsgeInfo();
         albumWindow->show();
+    });
+
+    QObject::connect(editSong , &EditSongWindow::goBack , [&](int albumID , int songID){
+        editSong->hide();
+
+        if(albumID==0)
+        {
+            songWindow->setSongId(songID);
+            songWindow->setPageInfo();
+            songWindow->show();
+        }
+        else
+        {
+            albumWindow->setAlbumId(albumID);
+            albumWindow->setPsgeInfo();
+            albumWindow->show();
+        }
+    });
+
+    QObject::connect(songWindow , &SongWindow::gotoEditSong , [&](int songID){
+        songWindow->hide();
+        editSong->setSongId(songID);
+        editSong->loadSongInfo();
+        editSong->show();
+    });
+
+    QObject::connect(albumWindow , &AlbumWindow::goToEditSong , [&](int songID){
+        albumWindow->hide();
+        editSong->setSongId(songID);
+        editSong->loadSongInfo();
+        editSong->show();
     });
 
     login.show();

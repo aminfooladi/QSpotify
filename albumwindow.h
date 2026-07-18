@@ -28,6 +28,7 @@ signals:
     void goToSongPage(int songID) ;
     void goToAddSong(int albumID) ;
     void goToEditAlbumWindow(int albumID);
+    void goToEditSong(int songID);
 
 private slots:
     void on_backButton_clicked();

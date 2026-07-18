@@ -94,6 +94,11 @@ void AlbumWindow::setPsgeInfo()
             editBtn->setFixedSize(60, 20);
             ui->songsTable->setCellWidget(i, 3, editBtn);
 
+            connect(editBtn, &QPushButton::clicked, this, [this, i, songs]() {
+                emit goToEditSong(songs[i].getId());
+                this->close();
+            });
+
             editBtn->setStyleSheet(
                 "background: transparent;"
                 "border: 1px solid rgb(89, 89, 89);"

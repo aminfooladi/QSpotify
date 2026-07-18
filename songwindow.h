@@ -24,6 +24,8 @@ public:
     void setPageInfo() ;
 signals:
     void goBack();
+    void  gotoEditSong(int songID);
+
 private slots:
     void on_horizontalSlider_sliderMoved(int position);
 
@@ -34,6 +36,8 @@ private slots:
     void on_nexSongPushButton_clicked();
 
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::SongWindow *ui;
