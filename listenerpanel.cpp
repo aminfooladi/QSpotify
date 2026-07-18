@@ -257,7 +257,6 @@ void ListenerPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
     this->close();
 }
 
-
 void ListenerPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
 {
     if(item->data(Qt::UserRole)=="addAlbum")

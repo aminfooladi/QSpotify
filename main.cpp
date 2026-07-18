@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     Database database;
-    database.loadDefaultData();
+    database.loadAll();
 
     AppPage page = AppPage::Login;
 

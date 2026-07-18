@@ -236,20 +236,16 @@ void Database::loadAll()
 
         Role role;
         if (roleStr == "Artist")
-        {
             role = Role::Artist;
-        }
         else
-        {
             role = Role::Listener;
-        }
 
         Account account(id,
                         QString::fromStdString(fullName),
                         QString::fromStdString(userName),
                         QString::fromStdString(biography),
                         QString::fromStdString(password),
-                        role );
+                        role);
         accountRepo.save(account);
     }
 
@@ -261,10 +257,11 @@ void Database::loadAll()
 
         file >> id;
         file.ignore();
+
         getline(file, title, ',');
-        getline(file, genre, ',');
         file >> releaseYear;
         file.ignore();
+        getline(file, genre, ',');
         getline(file, fileAddress, ',');
         file >> artistId;
         file.ignore();
@@ -328,8 +325,8 @@ void Database::loadAll()
             playlist.setSongID(songId);
             if (j < songCount - 1)
             {
-                char semicalem;
-                file >> semicalem;
+                char semicolon;
+                file >> semicolon;
             }
         }
         playlistRepo.save(playlist);
