@@ -34,6 +34,20 @@ void AddPlaylistWindow::setPageInfo()
     ui->errorLabel->setText("");
 }
 
+void AddPlaylistWindow::setPageInfo(vector<int> selectedSongIds, Playlist playlist)
+{
+    ui->nameLineEdit->clear();
+    this->selectedSongIds.clear();
+    newPlaylist = Playlist();
+
+    newPlaylist = playlist ;
+    this->selectedSongIds = selectedSongIds;
+
+    loadAvailableSongs();
+    loadSongsTable();
+    ui->errorLabel->setText("");
+}
+
 void AddPlaylistWindow::loadAvailableSongs()
 {
     allSongs = database->songRepo.getSongs();

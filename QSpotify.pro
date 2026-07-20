@@ -19,6 +19,7 @@ SOURCES += \
     artistrepository.cpp \
     database.cpp \
     editalbumwindow.cpp \
+    editplaylistwindow.cpp \
     editsongwindow.cpp \
     listenerpanel.cpp \
     listenerrepository.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     artistrepository.h \
     database.h \
     editalbumwindow.h \
+    editplaylistwindow.h \
     editsongwindow.h \
     listenerpanel.h \
     listenerrepository.h \
@@ -64,6 +66,7 @@ FORMS += \
     albumwindow.ui \
     artistpanel.ui \
     editalbumwindow.ui \
+    editplaylistwindow.ui \
     editsongwindow.ui \
     listenerpanel.ui \
     loginwindow.ui \

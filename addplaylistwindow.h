@@ -20,6 +20,7 @@ public:
 
     void setDatabase(Database* database);
     void setPageInfo();
+    void setPageInfo(std::vector<int> selectedSongIds , Playlist playlist);
 
 signals:
     void goBack();
