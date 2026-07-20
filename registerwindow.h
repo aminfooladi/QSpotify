@@ -29,6 +29,8 @@ private slots:
 
     void on_backToLoginButton_clicked();
 
+    void on_passwordLineEdit_textChanged(const QString &arg1);
+
 private:
     Database * database ;
     AppPage * page ;

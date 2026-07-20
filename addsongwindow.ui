@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/background/images/liteBackground.png);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0">
@@ -58,9 +61,10 @@ background: transparent;</string>
       <item row="0" column="1">
        <widget class="QLineEdit" name="titleLineEdit">
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
 border-radius: 10px;
-padding: 5px;</string>
+padding: 5px;
+</string>
         </property>
        </widget>
       </item>
@@ -109,9 +113,10 @@ background: transparent;</string>
       <item row="2" column="1">
        <widget class="QLineEdit" name="genreLineEdit">
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
 border-radius: 10px;
-padding: 5px;</string>
+padding: 5px;
+</string>
         </property>
        </widget>
       </item>
@@ -181,11 +186,24 @@ padding: 5px;</string>
         <item>
          <widget class="QPushButton" name="selectFileButton">
           <property name="styleSheet">
-           <string notr="true">background: transparent;
-border: 1px solid rgb(0, 85, 0);
+           <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(93, 93, 93);
 border-radius: 10px;
 padding: 5px 15px;
-color: rgb(0, 85, 0);</string>
+color: rgb(93, 93, 93);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(93, 93, 93);
+	border:1px solid rgb(255, 255, 255);
+border-radius: 10px;
+padding: 5px 15px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Browse...</string>
@@ -199,12 +217,24 @@ color: rgb(0, 85, 0);</string>
         <item>
          <widget class="QPushButton" name="cancelButton">
           <property name="styleSheet">
-           <string notr="true">background: transparent;
+           <string notr="true">QPushButton {
+background: transparent;
 border: 1px solid rgb(200, 0, 0);
-border-radius: 10px;
-padding: 8px 25px;
+border-radius: 15px;
+padding: 10px;
 color: rgb(200, 0, 0);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Cancel</string>
@@ -214,12 +244,24 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
         <item>
          <widget class="QPushButton" name="saveButton">
           <property name="styleSheet">
-           <string notr="true">background: transparent;
-border: 1px solid rgb(0, 85, 0);
-border-radius: 10px;
-padding: 8px 25px;
-color: rgb(0, 85, 0);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
+           <string notr="true">QPushButton {
+	background: transparent;
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(0, 85, 0);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(0, 85, 0);
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Save</string>
@@ -230,6 +272,14 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
       </item>
       <item row="8" column="0" colspan="2">
        <widget class="QLabel" name="erorLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(216, 0, 0);
+background: transparent;
+border-radius: 10px;
+
+
+</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -279,11 +329,24 @@ padding: 5px;</string>
         <item>
          <widget class="QPushButton" name="selectImageButton">
           <property name="styleSheet">
-           <string notr="true">background: transparent;
-border: 1px solid rgb(0, 85, 0);
+           <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(93, 93, 93);
 border-radius: 10px;
 padding: 5px 15px;
-color: rgb(0, 85, 0);</string>
+color: rgb(93, 93, 93);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(93, 93, 93);
+	border:1px solid rgb(255, 255, 255);
+border-radius: 10px;
+padding: 5px 15px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Browse...</string>

@@ -33,6 +33,19 @@ background-position: center;
       </property>
      </spacer>
     </item>
+    <item row="3" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
     <item row="1" column="2">
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
@@ -59,201 +72,8 @@ background-position: center;
       </property>
      </spacer>
     </item>
-    <item row="1" column="1">
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="fullNameLabel">
-        <property name="styleSheet">
-         <string notr="true">background-size: cover;
-color: rgb(0, 85, 0);</string>
-        </property>
-        <property name="text">
-         <string>Full Name :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="fullNameLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
-border-radius: 10px;
-padding: 5px;
-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="userNameLabel">
-        <property name="styleSheet">
-         <string notr="true">background-size: cover;
-color: rgb(0, 85, 0);</string>
-        </property>
-        <property name="text">
-         <string>User Name :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="userNameLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
-border-radius: 10px;
-padding: 5px;
-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="passwordLabel">
-        <property name="styleSheet">
-         <string notr="true">background-size: cover;
-color: rgb(0, 85, 0);</string>
-        </property>
-        <property name="text">
-         <string>Password :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="passwordLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
-border-radius: 10px;
-padding: 5px;
-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="roleLabel">
-        <property name="styleSheet">
-         <string notr="true">background-size: cover;
-color: rgb(0, 85, 0);</string>
-        </property>
-        <property name="text">
-         <string>Role :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QRadioButton" name="artistButton">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-background: transparent;
-border-radius: 10px;
-
-
-</string>
-          </property>
-          <property name="text">
-           <string>Artist</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="listenerButton">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-background: transparent;
-border-radius: 10px;
-
-
-</string>
-          </property>
-          <property name="text">
-           <string>Listener</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="biographyLabel">
-        <property name="styleSheet">
-         <string notr="true">background-size: cover;
-color: rgb(0, 85, 0);</string>
-        </property>
-        <property name="text">
-         <string>Biography :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="biographyLineEdit">
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
-border-radius: 10px;
-padding: 5px;
-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0" colspan="2">
-       <widget class="QLabel" name="errorLabel">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(216, 0, 0);
-background: transparent;
-border-radius: 10px;
-
-
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="2">
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QPushButton" name="backToLoginButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
-border-radius: 15px;
-padding: 10px;
-color: rgb(0, 85, 0);</string>
-          </property>
-          <property name="text">
-           <string>Back to Login</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="registerButton">
-          <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
-border-radius: 15px;
-padding: 10px;
-color: rgb(0, 85, 0);</string>
-          </property>
-          <property name="text">
-           <string>Register</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="1">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Orientation::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="0" column="2">
-     <layout class="QGridLayout" name="gridLayout_2" columnstretch="5,4,0" rowminimumheight="0,0">
+     <layout class="QGridLayout" name="gridLayout_2" columnstretch="5,4" rowminimumheight="0,0">
       <item row="1" column="1">
        <spacer name="verticalSpacer_3">
         <property name="orientation">
@@ -297,6 +117,236 @@ border: none;</string>
          </size>
         </property>
        </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="fullNameLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Full Name :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="fullNameLineEdit">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+border-radius: 10px;
+padding: 5px;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="userNameLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>User Name :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="userNameLineEdit">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+border-radius: 10px;
+padding: 5px;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="passwordLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Password :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="passwordLineEdit">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+border-radius: 10px;
+padding: 5px;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="roleLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Role :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="artistButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+border-radius: 10px;
+
+QRadioButton::indicator:checked {
+    background: rgb(0, 85, 0);
+}</string>
+          </property>
+          <property name="text">
+           <string>Artist</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="listenerButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+border-radius: 10px;
+
+QRadioButton::indicator:checked {
+    background: rgb(0, 85, 0);
+}</string>
+          </property>
+          <property name="text">
+           <string>Listener</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="biographyLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Biography :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="biographyLineEdit">
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+border-radius: 10px;
+padding: 5px;
+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0" colspan="2">
+       <widget class="QLabel" name="errorLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(216, 0, 0);
+background: transparent;
+border-radius: 10px;
+
+
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QPushButton" name="backToLoginButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(84, 84, 84);
+border-radius: 15px;
+padding: 10px;
+color: rgb(84, 84, 84);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(84, 84, 84);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Back to Login</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="registerButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	background: transparent;
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(0, 85, 0);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(0, 85, 0);
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Register</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="1">
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Password Progress :</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

@@ -393,3 +393,9 @@ void ArtistPanel::on_mySinglesListWidget_itemClicked(QListWidgetItem *item)
     this->close();
 }
 
+
+void ArtistPanel::on_lineEdit_textChanged(const QString &arg1)
+{
+
+}
+

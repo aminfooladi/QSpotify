@@ -74,6 +74,11 @@ void SongWindow::setPageInfo()
         QString audioFile = "C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3" ;
         if (QFile::exists(audioFile))
         {
+            QPixmap pixmap(":/songs/images/StopSongIcon.png");
+            QIcon icon(pixmap);
+            ui->playOrStoppushButton->setIcon(icon);
+            ui->playOrStoppushButton->setFixedSize(80, 80);
+            ui->playOrStoppushButton->setIconSize(QSize(80, 80));
             mediaPlayer->setSource(QUrl::fromLocalFile(audioFile));
             if(!mediaPlayer->isPlaying()) mediaPlayer->play();
         }
@@ -129,6 +134,7 @@ void SongWindow::on_nexSongPushButton_clicked()
 
 void SongWindow::on_pushButton_clicked()
 {
+    mediaPlayer->pause();
     emit goBack();
     this->close();
 }
@@ -136,6 +142,7 @@ void SongWindow::on_pushButton_clicked()
 
 void SongWindow::on_pushButton_2_clicked()
 {
+    mediaPlayer->pause();
     emit gotoEditSong(this->songID);
     this->close();
 }

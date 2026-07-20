@@ -89,15 +89,21 @@ void RegisterWindow::on_registerButton_clicked()
     if (password.length() < 6)
     {
         ui->errorLabel->setText("Weak password! Password must be at least 6 characters!");
+        ui->progressBar->setValue(60);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(231, 76, 60); }");
         return;
     }
     else if (password.length() >= 12 && hasUpper && hasLower && hasNumber && hasSpecial)
     {
         ui->errorLabel->setText("Strong password!");
+        ui->progressBar->setValue(80);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(243, 156, 18); }");
     }
     else if (password.length() >= 6 && hasUpper && hasLower && hasNumber && hasSpecial)
     {
         ui->errorLabel->setText("Medium password!");
+        ui->progressBar->setValue(100);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(29, 185, 84); }");
     }
     else
     {
@@ -145,5 +151,66 @@ void RegisterWindow::on_backToLoginButton_clicked()
     *page = AppPage::Login ;
     emit goToLoginPage() ;
     this->close();
+}
+
+
+
+
+void RegisterWindow::on_passwordLineEdit_textChanged(const QString &arg1)
+{
+    bool hasUpper = false;
+    bool hasLower = false;
+    bool hasNumber = false;
+    bool hasSpecial = false;
+    QString password = arg1 ;
+    for (int i = 0; i < password.size(); i++)
+    {
+
+        if (password[i] <= 'Z' && password[i] >= 'A' )
+        {
+            hasUpper = true;
+        }
+        else if (password[i] <= 'z' && password[i] >= 'a' )
+        {
+            hasLower = true;
+        }
+        else if (password[i] <= '9' && password[i] >= '0' )
+        {
+            hasNumber = true;
+        }
+        else if (password[i] == '@' || password[i] == '$' || password[i] == '%' || password[i] == '#' )
+        {
+            hasSpecial = true;
+        }
+    }
+
+    if (password.length() < 2)
+    {
+        ui->progressBar->setValue(20);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(231, 76, 60); }");
+    }
+    else if (password.length() < 4 && password.length() > 2)
+    {
+        ui->progressBar->setValue(40);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(231, 76, 60); }");
+    }
+    else if (password.length() < 6 && password.length() > 4)
+    {
+        ui->errorLabel->setText("Weak password! Password must be at least 6 characters!");
+        ui->progressBar->setValue(60);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(231, 76, 60); }");
+    }
+    else if (password.length() >= 6 && hasUpper && hasLower && hasNumber && hasSpecial && password.length() < 12 )
+    {
+        ui->errorLabel->setText("Medium password!");
+        ui->progressBar->setValue(80);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(243, 156, 18); }");
+    }
+    else if (password.length() >= 12 && hasUpper && hasLower && hasNumber && hasSpecial)
+    {
+        ui->errorLabel->setText("Strong password!");
+        ui->progressBar->setValue(100);
+        ui->progressBar->setStyleSheet("QProgressBar::chunk { background: rgb(29, 185, 84); }");
+    }
 }
 

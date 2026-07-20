@@ -76,8 +76,9 @@ background-position: center;
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;
-color: rgb(0, 85, 0);</string>
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
         </property>
         <property name="text">
          <string>User Name : </string>
@@ -103,8 +104,9 @@ padding: 5px;
          <bool>true</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: transparent;
-color: rgb(0, 85, 0);</string>
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
         </property>
         <property name="text">
          <string>Password :    </string>
@@ -156,11 +158,24 @@ border-radius: 10px;
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+           <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(200, 0, 0);
 border-radius: 15px;
 padding: 10px;
-color: rgb(0, 85, 0);</string>
+color: rgb(200, 0, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Register</string>
@@ -179,11 +194,24 @@ color: rgb(0, 85, 0);</string>
            <bool>true</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border:1px solid rgb(0, 85, 0);
-border-radius: 15px;
-padding: 10px;
-color: rgb(0, 85, 0);</string>
+           <string notr="true">QPushButton {
+	background: transparent;
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(0, 85, 0);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(0, 85, 0);
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Log In</string>

@@ -342,12 +342,24 @@ background: transparent;</string>
       <item row="0" column="1">
        <widget class="QPushButton" name="pushButton_2">
         <property name="styleSheet">
-         <string notr="true">background: transparent;
-border: 1px solid rgb(0, 85, 0);
+         <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(84, 84, 84);
 border-radius: 10px;
 padding: 8px 20px;
-color: rgb(0, 85, 0);
-font-weight: bold;
+color: rgb(84, 84, 84);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(84, 84, 84);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 8px 20px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
 </string>
         </property>
         <property name="text">

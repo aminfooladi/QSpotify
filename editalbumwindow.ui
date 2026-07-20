@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/background/images/liteBackground.png);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="1" column="2">
@@ -143,11 +146,24 @@ padding: 5px;</string>
           <item>
            <widget class="QPushButton" name="selectCoverButton">
             <property name="styleSheet">
-             <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+             <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(93, 93, 93);
 border-radius: 10px;
 padding: 5px 15px;
-color: rgb(0, 85, 0);</string>
+color: rgb(93, 93, 93);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(93, 93, 93);
+	border:1px solid rgb(255, 255, 255);
+border-radius: 10px;
+padding: 5px 15px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
             </property>
             <property name="text">
              <string>Browse...</string>
@@ -163,12 +179,24 @@ color: rgb(0, 85, 0);</string>
         <item>
          <widget class="QPushButton" name="cancelButton">
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+           <string notr="true">QPushButton {
+background: transparent;
 border: 1px solid rgb(200, 0, 0);
-border-radius: 10px;
-padding: 8px 25px;
+border-radius: 15px;
+padding: 10px;
 color: rgb(200, 0, 0);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Cancel</string>
@@ -178,12 +206,24 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
         <item>
          <widget class="QPushButton" name="saveButton">
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
-border-radius: 10px;
-padding: 8px 25px;
-color: rgb(0, 85, 0);
-font: 700 9pt &quot;Segoe UI&quot;;</string>
+           <string notr="true">QPushButton {
+	background: transparent;
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(0, 85, 0);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(0, 85, 0);
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
           </property>
           <property name="text">
            <string>Save Changes</string>
