@@ -19,4 +19,7 @@ vector<int> Playlist::getSongIDs() const { return songIDs; }
 void Playlist::setSongIDs(vector<int> songIDs) { this->songIDs = songIDs ; }
 void Playlist::setSongID(int songID) { this->songIDs.push_back(songID); }
 
+QString Playlist::getCover() const { return this->cover; }
+void Playlist::setCover(const QString &cover) { this->cover = cover; }
+
 void Playlist::removeSongID(int songID) { this->songIDs.erase(this->songIDs.begin()+songID); }

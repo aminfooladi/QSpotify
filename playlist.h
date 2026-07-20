@@ -11,6 +11,7 @@ private:
     QString name;
     int listenerId;
     std::vector<int> songIDs ;
+    QString cover;
 
 public:
     Playlist();
@@ -28,6 +29,9 @@ public:
     std::vector<int> getSongIDs() const;
     void setSongIDs(std::vector<int> songIDs);
     void setSongID(int songID);
+
+    QString getCover() const;
+    void setCover(const QString& cover);
 
     void removeSongID(int songIDs) ;
 };

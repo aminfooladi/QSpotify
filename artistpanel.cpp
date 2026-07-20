@@ -357,8 +357,8 @@ void ArtistPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
         return;
     }
 
-    int albumId = item->data(Qt::UserRole).toInt();
-    emit goToAlbumPage(albumId);
+    int playlistId = item->data(Qt::UserRole).toInt();
+    emit goToPlaylistPage(playlistId);
     this->close();
 }
 

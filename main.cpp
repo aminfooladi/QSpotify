@@ -11,6 +11,9 @@
 #include "editalbumwindow.h"
 #include "editsongwindow.h"
 #include "addplaylistwindow.h"
+#include "playlistwindow.h"
+#include "editplaylistwindow.h"
+
 
 #include <QApplication>
 #include <QIcon>
@@ -34,8 +37,10 @@ int main(int argc, char *argv[])
     AddPlaylistWindow addPlaylist ;
     EditAlbumWindow* editAlbum = new EditAlbumWindow ;
     EditSongWindow * editSong = new EditSongWindow ;
+    EditPlaylistWindow * editPlaylist = new EditPlaylistWindow ;
     AlbumWindow *albumWindow = new AlbumWindow;
     SongWindow *songWindow = new SongWindow ;
+    PlaylistWindow* playlistWindow = new PlaylistWindow;
 
     login.setDatabase(&database);
     login.setPtrToPage(&page);
@@ -60,9 +65,13 @@ int main(int argc, char *argv[])
     songWindow->setDatabase(&database);
     songWindow->setPtrToPage(&page);
 
+    playlistWindow->setDatabase(&database);
+
     editAlbum->setDatabase(&database);
 
     editSong->setDatabase(&database);
+
+    editPlaylist->setDatabase(&database);
 
     QObject::connect(&login, &LoginWindow::loginSuccessful, [&]() {
 
@@ -293,6 +302,63 @@ int main(int argc, char *argv[])
         editSong->setSongId(songID);
         editSong->loadSongInfo();
         editSong->show();
+    });
+
+    QObject::connect(&listener , &ListenerPanel::goToPlaylistPage , [&](int playlistID){
+        listener.hide();
+        playlistWindow->setPlaylistId(playlistID);
+        playlistWindow->setPageInfo();
+        playlistWindow->show();
+    });
+
+    QObject::connect(&artist , &ArtistPanel::goToPlaylistPage , [&](int playlistID){
+        listener.hide();
+        playlistWindow->setPlaylistId(playlistID);
+        playlistWindow->setPageInfo();
+        playlistWindow->show();
+    });
+
+    QObject::connect(playlistWindow , &PlaylistWindow::goBack , [&](){
+        playlistWindow->hide();
+
+        switch (page)
+        {
+        case AppPage::Login:
+            login.show();
+            break;
+        case AppPage::Register:
+            reg.show();
+            break;
+        case AppPage::ArtistPanel:
+            artist.setAccountInfo();
+            artist.show();
+            break;
+        case AppPage::ListenerPanel:
+            listener.setAccountInfo();
+            listener.show();
+            break;
+        }
+    });
+
+    QObject::connect(playlistWindow , &PlaylistWindow::goToEditPlaylistWindow , [&](int playlistID){
+        playlistWindow->hide();
+        editPlaylist->setPlaylistId(playlistID);
+        editPlaylist->setPageInfo();
+        editPlaylist->show();
+    });
+
+    QObject::connect(playlistWindow , &PlaylistWindow::goToSongPage , [&](int songID){
+        playlistWindow->hide();
+        songWindow->setSongId(songID);
+        songWindow->setPageInfo();
+        songWindow->show();
+    });
+
+    QObject::connect(editPlaylist , &EditPlaylistWindow::goBack , [&](int playlistID){
+        editPlaylist->hide();
+        playlistWindow->setPlaylistId(playlistID);
+        playlistWindow->setPageInfo();
+        playlistWindow->show();
     });
 
     QObject::connect(&artist , &ArtistPanel::goToAddPlaylist , [&](){

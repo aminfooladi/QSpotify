@@ -6,25 +6,270 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/background/images/darkBackground.png);
+background-image: url(:/images/background/images/liteBackground.png);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
+     <layout class="QGridLayout" name="gridLayout_3" rowstretch="1,4" columnstretch="1,1">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">image: url(:/images/logo/images/nweLogo.png);
+background: transparent;
+border: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="titleLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 16pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Edit Playlist</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="nameLayout">
+        <item>
+         <widget class="QLabel" name="nameLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Playlist Name :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="nameLineEdit">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border-radius: 10px;
+padding: 5px;</string>
+          </property>
+          <property name="placeholderText">
+           <string>Enter playlist name...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="songsLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Songs in Playlist :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="songsTable">
+        <property name="styleSheet">
+         <string notr="true">        QListWidget {
+           border: 1px solid rgb(0, 85, 0);
+			border-radius: 10px;
+			background: transparent;
+   
+            border: 1px solid rgb(0, 85, 0);
+            border-radius: 10px;
+            padding: 5px;
+        }</string>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="columnCount">
+         <number>2</number>
+        </property>
+        <property name="horizontalHeaderLabels" stdset="0">
+         <stringlist>
+          <string>Song Title</string>
+          <string>Action</string>
+         </stringlist>
+        </property>
+        <column/>
+        <column/>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="addLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 0);
+font: 700 10pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Available Songs (Double-click to add) :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="availableSongsList">
+        <property name="styleSheet">
+         <string notr="true">
+        QListWidget {
+           border: 1px solid rgb(0, 85, 0);
+			border-radius: 10px;
+			background: transparent;
+   
+            border: 1px solid rgb(0, 85, 0);
+            border-radius: 10px;
+            padding: 5px;
+        }
+        QListWidget::item {
+            padding: 8px;
+        }
+        QListWidget::item:selected {
+            background-color: rgba(0, 85, 0, 0.3);
+        }
+       </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="buttonLayout">
+        <item>
+         <widget class="QPushButton" name="cancelButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(200, 0, 0);
+border-radius: 10px;
+padding: 8px 25px;
+color: rgb(200, 0, 0);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saveButton">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
+border: 1px solid rgb(0, 85, 0);
+border-radius: 10px;
+padding: 8px 25px;
+color: rgb(0, 85, 0);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Save Changes</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="errorLabel">
+        <property name="styleSheet">
+         <string notr="true">color: rgb(216, 0, 0);
+background: transparent;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

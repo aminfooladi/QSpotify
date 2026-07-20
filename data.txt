@@ -44,11 +44,14 @@
 6,Rock Night,3,album6.jpg
 7,Electric Dreams,3,album7.jpg
 8,a,1,
-7
-1,My Favorites,4,0,
-2,Workout,4,0,
+10
+1,My Favorites,4,1,4
+2,Workout,4,5,2;3;4;5;6
 3,Chill,5,0,
 4,Classic Collection,6,0,
 5,Drive,5,0,
 6,amin1,4,4,1;2;3;4
 7,11,1,28,1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;19;20;21;22;23;24;25;26;27;28;17;18
+8,a,4,2,6;7
+9,2,4,2,1;2
+10,55,4,1,2
