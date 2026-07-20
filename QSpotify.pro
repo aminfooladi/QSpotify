@@ -27,6 +27,7 @@ SOURCES += \
     main.cpp \
     playlist.cpp \
     playlistrepository.cpp \
+    playlistwindow.cpp \
     registerwindow.cpp \
     song.cpp \
     songrepository.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
     loginwindow.h \
     playlist.h \
     playlistrepository.h \
+    playlistwindow.h \
     registerwindow.h \
     song.h \
     songrepository.h \
@@ -70,6 +72,7 @@ FORMS += \
     editsongwindow.ui \
     listenerpanel.ui \
     loginwindow.ui \
+    playlistwindow.ui \
     registerwindow.ui \
     songwindow.ui
 
