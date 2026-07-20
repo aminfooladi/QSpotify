@@ -35,6 +35,7 @@ signals:
     void goToSongPage(int songId);
     void goToAddAlbum();
     void goToAddSong() ;
+    void goToAddPlaylist();
 
 private slots:
     void on_editInfoButton_clicked();

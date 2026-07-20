@@ -249,11 +249,13 @@ void ListenerPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
 {
     if(item->data(Qt::UserRole)=="addPlaylist")
     {
+        emit goToAddPlaylist();
+        this->close();
         return;
     }
 
-    int albumId = item->data(Qt::UserRole).toInt();
-    emit goToAlbumPage(albumId);
+    int playlistId = item->data(Qt::UserRole).toInt();
+    emit goToPlaylistPage(playlistId);
     this->close();
 }
 

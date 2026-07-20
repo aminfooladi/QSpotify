@@ -113,7 +113,7 @@ background: transparent;</string>
        </string>
         </property>
         <property name="columnCount">
-         <number>3</number>
+         <number>2</number>
         </property>
         <property name="horizontalHeaderLabels" stdset="0">
          <stringlist>
@@ -122,7 +122,6 @@ background: transparent;</string>
           <string>Action</string>
          </stringlist>
         </property>
-        <column/>
         <column/>
         <column/>
        </widget>
@@ -239,6 +238,11 @@ background: transparent;</string>
       </item>
       <item row="0" column="1">
        <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">image: url(:/images/logo/images/nweLogo.png);
+background: transparent;
+border: none;</string>
+        </property>
         <property name="text">
          <string/>
         </property>

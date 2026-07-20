@@ -110,42 +110,30 @@ void AddPlaylistWindow::removeSongFromPlaylist(int row)
 void AddPlaylistWindow::loadSongsTable()
 {
     ui->songsTable->setRowCount(selectedSongIds.size());
-    ui->songsTable->setColumnWidth(0, 40);
-    ui->songsTable->setColumnWidth(1, 350);
-    ui->songsTable->setColumnWidth(2, 80);
+    ui->songsTable->setColumnWidth(0, 235);
+    ui->songsTable->setColumnWidth(1, 85);
 
     for (int i = 0; i < selectedSongIds.size(); i++)
     {
         optional<Song> song = database->songRepo.search(selectedSongIds[i]);
 
-        QTableWidgetItem* numItem = new QTableWidgetItem(QString::number(i + 1));
-        numItem->setTextAlignment(Qt::AlignCenter);
-        ui->songsTable->setItem(i, 0, numItem);
-
         QTableWidgetItem* titleItem = new QTableWidgetItem(song.value().getTitle());
-        ui->songsTable->setItem(i, 1, titleItem);
+        ui->songsTable->setItem(i, 0, titleItem);
 
         QPushButton* removeBtn = new QPushButton("✕ Remove");
-        removeBtn->setFixedSize(30, 25);
+        removeBtn->setFixedSize(60, 20);
         removeBtn->setStyleSheet(
-            "QPushButton {"
-            "    background-color: rgb(200, 0, 0);"
-            "    color: white;"
-            "    border: none;"
-            "    border-radius: 5px;"
-            "    font-weight: bold;"
-            "}"
-            "QPushButton:hover {"
-            "    background-color: rgb(230, 0, 0);"
-            "}"
-            );
+                "background: transparent;"
+                "border: 1px solid rgb(181, 0, 3);"
+                "border-radius: 10px;"
+                "color: rgb(181, 0, 3);");
 
         connect(removeBtn, &QPushButton::clicked, this, [this, i]()
                 {
                     onRemoveSong(i);
                 });
 
-        ui->songsTable->setCellWidget(i, 2, removeBtn);
+        ui->songsTable->setCellWidget(i, 1, removeBtn);
     }
 }
 

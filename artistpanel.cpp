@@ -352,6 +352,8 @@ void ArtistPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
 {
     if(item->data(Qt::UserRole)=="addPlaylist")
     {
+        emit goToAddPlaylist();
+        this->close();
         return;
     }
 
@@ -363,11 +365,6 @@ void ArtistPanel::on_playlistsListWidget_itemClicked(QListWidgetItem *item)
 
 void ArtistPanel::on_albumListWidget_itemClicked(QListWidgetItem *item)
 {
-    if(item->data(Qt::UserRole)=="addAlbum")
-    {
-        return;
-    }
-
     int albumId = item->data(Qt::UserRole).toInt();
     emit goToAlbumPage(albumId);
     this->close();

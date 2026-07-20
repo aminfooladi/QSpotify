@@ -30,6 +30,8 @@ signals:
     void goToLoginPage() ;
     void goToAlbumPage(int albumId);
     void goToSongPage(int songId);
+    void goToAddPlaylist();
+    void goToPlaylistPage(int playlistId);
 
 private slots:
     void on_OK_clicked();
