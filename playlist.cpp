@@ -22,4 +22,14 @@ void Playlist::setSongID(int songID) { this->songIDs.push_back(songID); }
 QString Playlist::getCover() const { return this->cover; }
 void Playlist::setCover(const QString &cover) { this->cover = cover; }
 
-void Playlist::removeSongID(int songID) { this->songIDs.erase(this->songIDs.begin()+songID); }
+void Playlist::removeSongID(int songID)
+{
+    for (int i = 0; i < songIDs.size(); i++)
+    {
+        if (songIDs[i] == songID)
+        {
+            songIDs.erase(songIDs.begin() + i);
+            return;
+        }
+    }
+}

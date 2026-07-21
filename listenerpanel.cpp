@@ -141,6 +141,19 @@ void ListenerPanel::lodePlaylists()
     ui->playlistsListWidget->setWrapping(false);
     ui->playlistsListWidget->setFixedHeight(230);
 
+    Playlist likePlaylist(0,"Liked Songs" , database->userAccount.getId()) ;
+    likePlaylist.setSongIDs(this->database->userAccount.getLikedSongIDs());
+    int result = database->playlistRepo.searchByName("Liked Songs");
+    if(result)
+    {
+        likePlaylist.setId(result);
+        this->database->playlistRepo.save(likePlaylist);
+    }
+    else
+    {
+        this->database->playlistRepo.save(likePlaylist);
+    }
+
     for (int i = 0; i < playlists.size(); i++)
     {
         QString imageAddres = ":/albums/images/albumDiffult.png";
@@ -209,6 +222,7 @@ void ListenerPanel::on_Cancel_clicked()
 
 void ListenerPanel::on_logoutButton_clicked()
 {
+    database->saveAll();
     *this->page = AppPage::Login ;
     emit goToLoginPage();
     this->close();
@@ -231,15 +245,9 @@ void ListenerPanel::on_deleteAccountButton_clicked()
         {
             database->saveAll();
 
-            QMessageBox::information(this, "Success", "Account deleted successfully!");
-
             *this->page = AppPage::Login;
             emit goToLoginPage();
             this->close();
-        }
-        else
-        {
-            QMessageBox::warning(this, "Error", "Something went wrong!");
         }
     }
 }

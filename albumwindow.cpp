@@ -109,6 +109,12 @@ void AlbumWindow::setPsgeInfo()
             deleteBtn->setFixedSize(60, 20);
             ui->songsTable->setCellWidget(i, 4, deleteBtn);
 
+            connect(deleteBtn, &QPushButton::clicked, this, [this, songId = songs[i].getId()]() {
+                this->database->songRepo.remove(songId);
+                this->database->saveAll();
+                this->setPsgeInfo();
+            });
+
             deleteBtn->setStyleSheet(
                 "background: transparent;"
                 "border: 1px solid rgb(181, 0, 3);"

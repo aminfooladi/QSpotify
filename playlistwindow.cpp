@@ -91,10 +91,8 @@ void PlaylistWindow::setPageInfo()
 
             QPushButton* deleteBtn = new QPushButton("✕ Delete");
             deleteBtn->setFixedSize(60, 20);
-            if (ui->songsTable->rowCount() != 1)
-            {
-                ui->songsTable->setCellWidget(i, 3, deleteBtn);
-            }
+            ui->songsTable->setCellWidget(i, 3, deleteBtn);
+
 
 
             deleteBtn->setStyleSheet(

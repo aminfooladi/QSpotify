@@ -54,6 +54,7 @@ void SongWindow::setPageInfo()
         ui->songArtistLabel->setText(database->accountRepo.search(song.getArtistId()).value().getFullName()) ;
         ui->songGenreLabel->setText(song.getGenre()) ;
         ui->songNameLabel->setText(song.getTitle());
+        ui->albumLabel->setText(database->albumRepo.search(song.getAlbumId()).value().getName());
         ui->songYearLabel->setText(QString::number(song.getReleaseYear()));
 
         QString coverPath = song.getCover();
@@ -70,8 +71,8 @@ void SongWindow::setPageInfo()
 
         ui->coverLabel->setPixmap(pixmap.scaled( ui->coverLabel->size()));
 
-        //QString audioFile = song.getFileAddress();
-        QString audioFile = "C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3" ;
+        QString audioFile = song.getFileAddress();
+        //QString audioFile = "C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3" ;
         if (QFile::exists(audioFile))
         {
             QPixmap pixmap(":/songs/images/StopSongIcon.png");
@@ -83,6 +84,37 @@ void SongWindow::setPageInfo()
             if(!mediaPlayer->isPlaying()) mediaPlayer->play();
         }
     }
+
+    QPixmap pixmapLikeIcon(":/songs/images/likedIcon.png");
+    QIcon likeIcon(pixmapLikeIcon);
+
+    QPixmap pixmapUnlikeIcon(":/songs/images/unlikedIcon.png");
+    QIcon unlikeIcon(pixmapUnlikeIcon);
+
+    bool isLiked = false ;
+    vector<int> likedSongIDs = database->userAccount.getLikedSongIDs();
+    int size = likedSongIDs.size() ;
+    for ( int i=0 ; i<size ; i++ )
+    {
+        if (likedSongIDs[i] == this->songID)
+        {
+            isLiked = true;
+            break;
+        }
+    }
+    if(!isLiked)
+    {
+        ui->likePushButton->setIcon(unlikeIcon);
+        ui->likePushButton->setFixedSize(QSize(35,35));
+        ui->likePushButton->setIconSize(QSize(35,35));
+    }
+    else
+    {
+        ui->likePushButton->setIcon(likeIcon);
+        ui->likePushButton->setFixedSize(QSize(35,35));
+        ui->likePushButton->setIconSize(QSize(35,35));
+    }
+
 }
 
 void SongWindow::on_horizontalSlider_sliderMoved(int position)
@@ -156,18 +188,35 @@ void SongWindow::on_likePushButton_clicked()
     QPixmap pixmapUnlikeIcon(":/songs/images/unlikedIcon.png");
     QIcon unlikeIcon(pixmapUnlikeIcon);
 
-    if(0)
+    bool isLiked = false ;
+    vector<int> likedSongIDs = database->userAccount.getLikedSongIDs();
+    int size = likedSongIDs.size() ;
+    int index = 0 ;
+    for ( int i=0 ; i<size ; i++ )
+    {
+        if (likedSongIDs[i] == this->songID)
+        {
+            isLiked = true;
+            index = i;
+            break;
+        }
+    }
+    if(isLiked)
     {
         ui->likePushButton->setIcon(unlikeIcon);
         ui->likePushButton->setFixedSize(QSize(35,35));
         ui->likePushButton->setIconSize(QSize(35,35));
+        likedSongIDs.erase(likedSongIDs.begin() + index);
     }
     else
     {
         ui->likePushButton->setIcon(likeIcon);
         ui->likePushButton->setFixedSize(QSize(35,35));
         ui->likePushButton->setIconSize(QSize(35,35));
+        likedSongIDs.push_back(this->songID);
     }
 
+    this->database->userAccount.setLikedSongIDs(likedSongIDs);
+    database->saveAll();
 }
 

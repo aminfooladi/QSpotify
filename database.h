@@ -18,7 +18,6 @@ public:
 
     Database();
 
-    void loadDefaultData();
     void saveAll();
     void loadAll();
 };

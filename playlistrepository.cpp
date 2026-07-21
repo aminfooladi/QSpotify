@@ -90,6 +90,18 @@ std::vector<Playlist> PlaylistRepository::getByWordOrWordsOfName(QString wordOrW
     return result;
 }
 
+int PlaylistRepository::searchByName(QString name)
+{
+    for (int i = 0; i < playlists.size(); i++)
+    {
+        if (playlists[i].getName()==name)
+        {
+            return playlists[i].getId();
+        }
+    }
+    return 0 ;
+}
+
 vector<Playlist> PlaylistRepository::getPlaylists(int listenerID)
 {
     vector<Playlist> result;

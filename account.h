@@ -19,6 +19,7 @@ private:
     QString password;
     Role role;
     QString profilePhoto;
+    std::vector <int> likedSongIDs;
 
 public:
     Account();
@@ -46,6 +47,9 @@ public:
 
     QString getProfilePhoto() const;
     void setProfilePhoto(const QString& profilePhoto);
+
+    std::vector <int> getLikedSongIDs();
+    void setLikedSongIDs( std::vector<int> likedSongIDs );
 };
 
 #endif // ACCOUNT_H

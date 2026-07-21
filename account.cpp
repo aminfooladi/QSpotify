@@ -30,3 +30,6 @@ void Account::setRole(Role role) { this->role = role; }
 
 QString Account::getProfilePhoto() const { return profilePhoto; }
 void Account::setProfilePhoto(const QString& profilePhoto) { this->profilePhoto = profilePhoto; }
+
+std::vector<int> Account::getLikedSongIDs() { return this->likedSongIDs; }
+void Account::setLikedSongIDs(std::vector<int> likedSongIDs) { this->likedSongIDs = likedSongIDs ; }

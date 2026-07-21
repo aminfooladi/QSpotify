@@ -143,6 +143,19 @@ void ArtistPanel::lodePlaylists()
     ui->playlistsListWidget->setWrapping(false);
     ui->playlistsListWidget->setFixedHeight(230);
 
+    Playlist likePlaylist(0,"Liked Songs" , database->userAccount.getId()) ;
+    likePlaylist.setSongIDs(this->database->userAccount.getLikedSongIDs());
+    int result = database->playlistRepo.searchByName("Liked Songs");
+    if(result)
+    {
+        likePlaylist.setId(result);
+        this->database->playlistRepo.save(likePlaylist);
+    }
+    else
+    {
+        this->database->playlistRepo.save(likePlaylist);
+    }
+
     for (int i = 0; i < playlists.size(); i++)
     {
         QString imageAddres = ":/albums/images/albumDiffult.png";
@@ -276,6 +289,7 @@ void ArtistPanel::on_Cancel_clicked()
 
 void ArtistPanel::on_logoutButton_clicked()
 {
+    database->saveAll();
     *this->page = AppPage::Login ;
     emit goToLoginPage();
     this->close();
@@ -299,9 +313,9 @@ void ArtistPanel::on_OK_clicked()
     {
         database->userAccount.setBiography(bio) ;
     }
+    database->saveAll() ;
     this->setAccountInfo();
     ui->editInfoGroupBox->hide() ;
-    database->saveAll() ;
 }
 
 
@@ -315,21 +329,32 @@ void ArtistPanel::on_deleteAccountButton_clicked()
     if (reply == QMessageBox::Yes)
     {
         int userId = database->userAccount.getId();
-        bool removed = database->accountRepo.remove(userId);
 
-        if (removed)
+        vector<Song> userSongs = database->songRepo.getByArtist(userId);
+        for (int i = 0; i < userSongs.size(); i++)
+        {
+            database->songRepo.remove(userSongs[i].getId());
+        }
+
+        vector<Album> userAlbums = database->albumRepo.getAlbums(userId);
+        for (int i = 0; i < userAlbums.size(); i++)
+        {
+            database->albumRepo.remove(userAlbums[i].getId());
+        }
+
+        vector<Playlist> userPlaylists = database->playlistRepo.getPlaylists(userId);
+        for (int i = 0; i < userPlaylists.size(); i++)
+        {
+            database->playlistRepo.remove(userPlaylists[i].getId());
+        }
+
+        if (database->accountRepo.remove(userId))
         {
             database->saveAll();
-
-            QMessageBox::information(this, "Success", "Account deleted successfully!");
 
             *this->page = AppPage::Login;
             emit goToLoginPage();
             this->close();
-        }
-        else
-        {
-            QMessageBox::warning(this, "Error", "Something went wrong!");
         }
     }
 }

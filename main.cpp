@@ -444,5 +444,16 @@ int main(int argc, char *argv[])
 
     login.show();
 
-    return a.exec();
+    int result = a.exec();
+
+    database.saveAll();
+
+    delete editAlbum;
+    delete editSong;
+    delete editPlaylist;
+    delete albumWindow;
+    delete songWindow;
+    delete playlistWindow;
+
+    return result;
 }

@@ -129,7 +129,16 @@ void EditAlbumWindow::on_cancelButton_clicked()
 
 void EditAlbumWindow::on_deleteAlbumPushButton_clicked()
 {
+    std::vector<Song> songs = database->songRepo.getByAlbum(this->albumId);
+
+    for (int i = 0; i < songs.size(); i++)
+    {
+        database->songRepo.remove(songs[i].getId());
+    }
+
     this->database->albumRepo.remove(this->albumId);
+    database->saveAll();
+
     emit goToPanel();
     this->close();
 }
