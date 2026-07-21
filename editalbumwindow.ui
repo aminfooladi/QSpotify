@@ -45,7 +45,7 @@
      </spacer>
     </item>
     <item row="1" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,0,0">
       <item>
        <widget class="QLabel" name="titleLabel">
         <property name="styleSheet">
@@ -231,6 +231,33 @@ QPushButton:hover {
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteAlbumPushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background: transparent;
+border: 3px solid rgb(200, 0, 0);
+border-radius: 15px;
+padding: 10px;
+color: rgb(200, 0, 0);
+font: 700 12pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 12pt &quot;Segoe UI&quot;;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Delete Album</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="errorLabel">

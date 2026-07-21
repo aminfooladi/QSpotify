@@ -254,6 +254,33 @@ QPushButton:hover {
        </layout>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background: transparent;
+border: 3px solid rgb(200, 0, 0);
+border-radius: 15px;
+padding: 10px;
+color: rgb(200, 0, 0);
+font: 700 12pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 15px;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	font: 700 12pt &quot;Segoe UI&quot;;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Delete Playlist</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="errorLabel">
         <property name="styleSheet">
          <string notr="true">color: rgb(216, 0, 0);

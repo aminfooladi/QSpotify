@@ -24,6 +24,7 @@ public:
 signals:
     void goBack(int albumID);
     void albumUpdated(int albumID);
+    void goToPanel();
 
 private slots:
     void on_selectCoverButton_clicked();
@@ -31,6 +32,8 @@ private slots:
     void on_saveButton_clicked();
 
     void on_cancelButton_clicked();
+
+    void on_deleteAlbumPushButton_clicked();
 
 private:
     Ui::EditAlbumWindow *ui;

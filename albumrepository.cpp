@@ -71,3 +71,16 @@ int AlbumRepository::searchByName(QString name)
     }
     return 0 ;
 }
+
+std::vector<Album> AlbumRepository::getByWordOrWordsOfName(QString wordOrWords)
+{
+    vector<Album> result;
+    for ( int i=0 ; i<albums.size() ; i++ )
+    {
+        if(albums[i].getName().startsWith(wordOrWords))
+        {
+            result.push_back(albums[i]);
+        }
+    }
+    return result;
+}

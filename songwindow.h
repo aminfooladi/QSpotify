@@ -39,6 +39,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_likePushButton_clicked();
+
 private:
     Ui::SongWindow *ui;
     Database * database ;

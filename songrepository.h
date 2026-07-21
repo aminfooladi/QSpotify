@@ -26,6 +26,7 @@ public:
     int serchSongByName(QString name);
     int serchSongByFileAddress(QString address);
     std::vector<Song> getSongs() ;
+    std::vector<Song> getByWordOrWordsOfName(QString wordOrWords);
 };
 
 #endif // SONGREPOSITORY_H

@@ -126,3 +126,11 @@ void EditAlbumWindow::on_cancelButton_clicked()
     return ;
 }
 
+
+void EditAlbumWindow::on_deleteAlbumPushButton_clicked()
+{
+    this->database->albumRepo.remove(this->albumId);
+    emit goToPanel();
+    this->close();
+}
+

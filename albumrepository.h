@@ -22,6 +22,7 @@ public:
     std::vector<Album> getAlbums() ;
 
     int searchByName(QString name) ;
+    std::vector<Album> getByWordOrWordsOfName(QString wordOrWords);
 };
 
 #endif // ALBUMREPOSITORY_H

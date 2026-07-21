@@ -2,7 +2,8 @@
 #include "ui_artistpanel.h"
 
 #include <QFile>
-#include<QMessageBox>
+#include <QMessageBox>
+#include <QListWidgetItem>
 using namespace std;
 ArtistPanel::ArtistPanel(QWidget *parent)
     : QMainWindow(parent)
@@ -394,8 +395,94 @@ void ArtistPanel::on_mySinglesListWidget_itemClicked(QListWidgetItem *item)
 }
 
 
-void ArtistPanel::on_lineEdit_textChanged(const QString &arg1)
+void ArtistPanel::on_plaaylistRadioButton_clicked()
 {
+    on_searchLineEdit_textChanged(ui->searchLineEdit->text());
+}
 
+
+void ArtistPanel::on_albumRadioButton_clicked()
+{
+    on_searchLineEdit_textChanged(ui->searchLineEdit->text());
+}
+
+
+void ArtistPanel::on_songRadioButton_clicked()
+{
+    on_searchLineEdit_textChanged(ui->searchLineEdit->text());
+}
+
+
+void ArtistPanel::on_searchLineEdit_textChanged(const QString &arg1)
+{
+    bool searchInSong = ui->songRadioButton->isChecked() ,
+        searchInAlbum = ui->albumRadioButton->isChecked() ,
+        searchInPlaylist = ui->plaaylistRadioButton->isChecked();
+
+    ui->listWidget->clear();
+
+    if(searchInSong)
+    {
+        vector<Song> songs = this->database->songRepo.getByWordOrWordsOfName(arg1);
+
+        for(int i=0 ; i<songs.size() ; i++ )
+        {
+            QListWidgetItem * item = new QListWidgetItem(songs[i].getTitle() + " | " + database->accountRepo.search(songs[i].getArtistId()).value().getFullName() );
+            item->setData(Qt::UserRole , songs[i].getId());
+            ui->listWidget->addItem(item);
+        }
+    }
+    else if(searchInAlbum)
+    {
+        vector<Album> albums = this->database->albumRepo.getByWordOrWordsOfName(arg1);
+
+        for(int i=0 ; i<albums.size() ; i++ )
+        {
+            QListWidgetItem * item = new QListWidgetItem(albums[i].getName() + " | " + database->accountRepo.search(albums[i].getArtistId()).value().getFullName() );
+            item->setData(Qt::UserRole , albums[i].getId());
+            ui->listWidget->addItem(item);
+        }
+    }
+    else if(searchInPlaylist)
+    {
+        vector<Playlist> playlists = this->database->playlistRepo.getByWordOrWordsOfName(arg1);
+
+        for(int i=0 ; i<playlists.size() ; i++ )
+        {
+            if(playlists[i].getListenerId()==this->database->userAccount.getId())
+            {
+                QListWidgetItem * item = new QListWidgetItem(playlists[i].getName() + " | " + database->accountRepo.search(playlists[i].getListenerId()).value().getFullName() );
+                item->setData(Qt::UserRole , playlists[i].getId());
+                ui->listWidget->addItem(item);
+            }
+        }
+    }
+}
+
+
+void ArtistPanel::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    bool searchInSong = ui->songRadioButton->isChecked() ,
+        searchInAlbum = ui->albumRadioButton->isChecked() ,
+        searchInPlaylist = ui->plaaylistRadioButton->isChecked();
+
+    if(searchInSong)
+    {
+        int songID = item->data(Qt::UserRole).toInt() ;
+        emit goToSongPage(songID);
+        this->close();
+    }
+    else if(searchInAlbum)
+    {
+        int albumID = item->data(Qt::UserRole).toInt() ;
+        emit goToAlbumPage(albumID);
+        this->close();
+    }
+    else if(searchInPlaylist)
+    {
+        int playlistID = item->data(Qt::UserRole).toInt();
+        emit goToPlaylistPage(playlistID);
+        this->close();
+    }
 }
 

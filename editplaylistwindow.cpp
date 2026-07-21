@@ -209,3 +209,10 @@ void EditPlaylistWindow::on_cancelButton_clicked()
     emit goBack(this->playlistId);
     this->close();
 }
+void EditPlaylistWindow::on_pushButton_clicked()
+{
+    this->database->playlistRepo.remove(this->playlistId);
+    emit goToPanel() ;
+    this->close();
+}
+

@@ -80,6 +80,85 @@ border-radius: 15px;
     </item>
     <item row="2" column="1">
      <layout class="QGridLayout" name="gridLayout" rowstretch="2,0,0,0,0,3" columnstretch="2,0,2,1">
+      <item row="3" column="0" colspan="3">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QSlider" name="horizontalSlider">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+background: transparent;</string>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="2">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+font: 700 16pt &quot;Segoe UI&quot;;
+font-weight: bold;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string>Song Name :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="songNameLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 143, 0);
+font: 700 16pt &quot;Segoe UI&quot;;
+font-weight: bold;
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="likePushButton">
+          <property name="styleSheet">
+           <string notr="true">background: transparent;
+border: none;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resources.qrc">
+            <normaloff>:/songs/images/unlikedIcon.png</normaloff>:/songs/images/unlikedIcon.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>35</width>
+            <height>35</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
       <item row="5" column="0">
        <spacer name="verticalSpacer_4">
         <property name="orientation">
@@ -155,122 +234,6 @@ QPushButton:hover {
          </size>
         </property>
        </widget>
-      </item>
-      <item row="1" column="2">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="1">
-       <layout class="QFormLayout" name="formLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-font: 700 16pt &quot;Segoe UI&quot;;
-font-weight: bold;
-background: transparent;</string>
-          </property>
-          <property name="text">
-           <string>Song Name :</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="songNameLabel">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 143, 0);
-font: 700 16pt &quot;Segoe UI&quot;;
-font-weight: bold;
-background: transparent;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="3" rowspan="4">
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-background: transparent;
-font: 700 11pt &quot;Segoe UI&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Year :</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="songYearLabel">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 143, 0);
-background: transparent;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-background: transparent;
-font: 700 11pt &quot;Segoe UI&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Genre :</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="songGenreLabel">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 143, 0);
-background: transparent;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 85, 0);
-background: transparent;
-font: 700 11pt &quot;Segoe UI&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Artist :</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="songArtistLabel">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(0, 143, 0);
-background: transparent;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </item>
       <item row="4" column="0" colspan="3">
        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0,0,0">
@@ -365,37 +328,97 @@ border: none;</string>
         </item>
        </layout>
       </item>
-      <item row="3" column="0" colspan="3">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QSlider" name="horizontalSlider">
+      <item row="1" column="3" rowspan="4">
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
           <property name="styleSheet">
            <string notr="true">color: rgb(0, 85, 0);
-background: transparent;</string>
+background: transparent;
+font: 700 11pt &quot;Segoe UI&quot;;</string>
           </property>
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
+          <property name="text">
+           <string>Year :</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QPushButton" name="likePushButton">
+        <item row="0" column="1">
+         <widget class="QLabel" name="songYearLabel">
           <property name="styleSheet">
-           <string notr="true">background: transparent;
-border: none;</string>
+           <string notr="true">color: rgb(0, 143, 0);
+background: transparent;</string>
           </property>
           <property name="text">
            <string/>
           </property>
-          <property name="icon">
-           <iconset resource="resources.qrc">
-            <normaloff>:/songs/images/unlikedIcon.png</normaloff>:/songs/images/unlikedIcon.png</iconset>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+background: transparent;
+font: 700 11pt &quot;Segoe UI&quot;;</string>
           </property>
-          <property name="iconSize">
-           <size>
-            <width>35</width>
-            <height>35</height>
-           </size>
+          <property name="text">
+           <string>Genre :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+background: transparent;
+font: 700 11pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Artist :</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="songArtistLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 143, 0);
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="songGenreLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 143, 0);
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="albumLabel">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 143, 0);
+background: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+background: transparent;
+font: 700 11pt &quot;Segoe UI&quot;;</string>
+          </property>
+          <property name="text">
+           <string>Album :</string>
           </property>
          </widget>
         </item>

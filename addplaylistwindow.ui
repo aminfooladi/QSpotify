@@ -104,15 +104,14 @@ background: transparent;</string>
       <item>
        <widget class="QTableWidget" name="songsTable">
         <property name="styleSheet">
-         <string notr="true">
-        QTableWidget {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgb(0, 85, 0);
-            border-radius: 10px;
-        }
-        QTableWidget::item {
-            padding: 5px;
-        }
+         <string notr="true">QTableWidget {
+	background: transparent;
+	border: 1px solid rgb(0, 85, 0);
+	border-radius: 10px;
+}
+ QTableWidget::item {
+ 	padding: 5px;
+  }
        </string>
         </property>
         <property name="columnCount">
@@ -144,23 +143,21 @@ background: transparent;</string>
       <item>
        <widget class="QListWidget" name="availableSongsList">
         <property name="styleSheet">
-         <string notr="true">
-        QListWidget {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgb(0, 85, 0);
-            border-radius: 10px;
-            padding: 5px;
-        }
-        QListWidget::item {
-            padding: 8px;
-        }
-        QListWidget::item:hover {
-            background-color: rgba(0, 85, 0, 0.2);
-        }
-        QListWidget::item:selected {
-            background-color: rgba(0, 85, 0, 0.3);
-        }
-       </string>
+         <string notr="true">QListWidget {
+	background: transparent;
+	border: 1px solid rgb(0, 85, 0);
+	border-radius: 10px;
+	padding: 5px;
+}
+QListWidget::item {
+	padding: 8px;
+}
+QListWidget::item:hover {
+	background-color: rgba(0, 85, 0, 0.2);
+}
+QListWidget::item:selected {
+	background-color: rgba(0, 85, 0, 0.3);
+}</string>
         </property>
        </widget>
       </item>

@@ -77,6 +77,19 @@ std::vector<Song> SongRepository::getSongs()
     return this->songs ;
 }
 
+std::vector<Song> SongRepository::getByWordOrWordsOfName(QString wordOrWords)
+{
+    vector<Song> result;
+    for ( int i=0 ; i<songs.size() ; i++ )
+    {
+        if(songs[i].getTitle().startsWith(wordOrWords))
+        {
+            result.push_back(songs[i]);
+        }
+    }
+    return result;
+}
+
 vector<Song> SongRepository::singleSongs(int ArtistID)
 {
     vector<Song> singles ;

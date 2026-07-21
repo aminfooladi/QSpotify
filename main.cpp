@@ -398,6 +398,50 @@ int main(int argc, char *argv[])
     });
 
 
+    QObject::connect(editAlbum , &EditAlbumWindow::goToPanel , [&](){
+        editAlbum->hide();
+
+        switch (page)
+        {
+        case AppPage::Login:
+            login.show();
+            break;
+        case AppPage::Register:
+            reg.show();
+            break;
+        case AppPage::ArtistPanel:
+            artist.setAccountInfo();
+            artist.show();
+            break;
+        case AppPage::ListenerPanel:
+            listener.setAccountInfo();
+            listener.show();
+            break;
+        }
+    });
+
+    QObject::connect(editPlaylist , &EditPlaylistWindow::goToPanel , [&](){
+        editPlaylist->hide();
+
+        switch (page)
+        {
+        case AppPage::Login:
+            login.show();
+            break;
+        case AppPage::Register:
+            reg.show();
+            break;
+        case AppPage::ArtistPanel:
+            artist.setAccountInfo();
+            artist.show();
+            break;
+        case AppPage::ListenerPanel:
+            listener.setAccountInfo();
+            listener.show();
+            break;
+        }
+    });
+
     login.show();
 
     return a.exec();

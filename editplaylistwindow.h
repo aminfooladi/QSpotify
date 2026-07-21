@@ -24,12 +24,15 @@ public:
 
 signals:
     void goBack(int playlistID);
+    void goToPanel();
 
 private slots:
     void on_availableSongsList_itemDoubleClicked(QListWidgetItem *item);
     void on_saveButton_clicked();
     void on_cancelButton_clicked();
     void onRemoveSong(int row);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::EditPlaylistWindow *ui;

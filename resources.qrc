@@ -25,5 +25,7 @@
         <file>images/next10sOfSongIcon.png</file>
         <file>images/playSongBtnIcon.png</file>
         <file>images/StopSongIcon.png</file>
+        <file>images/likedIcon.png</file>
+        <file>images/unlikedIcon.png</file>
     </qresource>
 </RCC>

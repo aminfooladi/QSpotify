@@ -59,6 +59,16 @@ private slots:
 
     void on_mySinglesListWidget_itemClicked(QListWidgetItem *item);
 
+    void on_plaaylistRadioButton_clicked();
+
+    void on_albumRadioButton_clicked();
+
+    void on_songRadioButton_clicked();
+
+    void on_searchLineEdit_textChanged(const QString &arg1);
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+
 private:
     Database * database ;
     AppPage * page ;

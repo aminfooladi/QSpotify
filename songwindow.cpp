@@ -147,3 +147,27 @@ void SongWindow::on_pushButton_2_clicked()
     this->close();
 }
 
+
+void SongWindow::on_likePushButton_clicked()
+{
+    QPixmap pixmapLikeIcon(":/songs/images/likedIcon.png");
+    QIcon likeIcon(pixmapLikeIcon);
+
+    QPixmap pixmapUnlikeIcon(":/songs/images/unlikedIcon.png");
+    QIcon unlikeIcon(pixmapUnlikeIcon);
+
+    if(0)
+    {
+        ui->likePushButton->setIcon(unlikeIcon);
+        ui->likePushButton->setFixedSize(QSize(35,35));
+        ui->likePushButton->setIconSize(QSize(35,35));
+    }
+    else
+    {
+        ui->likePushButton->setIcon(likeIcon);
+        ui->likePushButton->setFixedSize(QSize(35,35));
+        ui->likePushButton->setIconSize(QSize(35,35));
+    }
+
+}
+

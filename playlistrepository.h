@@ -22,6 +22,7 @@ public:
     std::vector<Playlist> getPlaylists(int listenerID) ;
 
     std::vector<Playlist> getAllPlaylists() ;
+    std::vector<Playlist> getByWordOrWordsOfName(QString wordOrWords);
 };
 
 #endif // PLAYLISTREPOSITORY_H

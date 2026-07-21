@@ -23,7 +23,7 @@
      <number>6</number>
     </property>
     <item row="0" column="1">
-     <layout class="QGridLayout" name="gridLayout_4" rowstretch="4,1" columnstretch="4,1">
+     <layout class="QGridLayout" name="gridLayout_4" rowstretch="4,0" columnstretch="4,1">
       <item row="0" column="1">
        <widget class="QLabel" name="logoLabel_2">
         <property name="styleSheet">
@@ -35,22 +35,6 @@ border: none;</string>
          <string/>
         </property>
        </widget>
-      </item>
-      <item row="0" column="0">
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Policy::Expanding</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>460</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
       </item>
       <item row="1" column="1">
        <spacer name="verticalSpacer_4">
@@ -67,6 +51,90 @@ border: none;</string>
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="0" column="0" rowspan="2">
+       <layout class="QGridLayout" name="gridLayout_2" columnstretch="10,0,0,0">
+        <item row="0" column="1">
+         <widget class="QRadioButton" name="plaaylistRadioButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+border-radius: 10px;
+
+QRadioButton::indicator:checked {
+    background: rgb(0, 85, 0);
+}</string>
+          </property>
+          <property name="text">
+           <string>Playlist</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QRadioButton" name="songRadioButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+border-radius: 10px;
+
+QRadioButton::indicator:checked {
+    background: rgb(0, 85, 0);
+}</string>
+          </property>
+          <property name="text">
+           <string>Song</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QRadioButton" name="albumRadioButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 85, 0);
+border-radius: 10px;
+
+QRadioButton::indicator:checked {
+    background: rgb(0, 85, 0);
+}</string>
+          </property>
+          <property name="text">
+           <string>Album</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="searchLineEdit">
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/background/images/witeBackground.png); 
+border-radius: 10px;
+padding: 5px;
+</string>
+          </property>
+          <property name="placeholderText">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="4">
+         <widget class="QListWidget" name="listWidget">
+          <property name="styleSheet">
+           <string notr="true">QListWidget {
+	background: transparent;
+	border: 1px solid rgb(0, 85, 0);
+	border-radius: 10px;
+	padding: 5px;
+}
+QListWidget::item {
+	padding: 8px;
+}
+QListWidget::item:hover {
+	background-color: rgba(0, 85, 0, 0.2);
+}
+QListWidget::item:selected {
+	background-color: rgba(0, 85, 0, 0.3);
+}
+       </string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -95,7 +163,7 @@ background: transparent;
            <x>0</x>
            <y>0</y>
            <width>1080</width>
-           <height>551</height>
+           <height>580</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -285,11 +353,23 @@ background: transparent;</string>
          <item>
           <widget class="QPushButton" name="editInfoButton">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+            <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(84, 84, 84);
 border-radius: 10px;
 padding: 5px;
-color: rgb(0, 85, 0);
+color: rgb(84, 84, 84);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(84, 84, 84);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
 </string>
            </property>
            <property name="text">
@@ -300,11 +380,23 @@ color: rgb(0, 85, 0);
          <item>
           <widget class="QPushButton" name="logoutButton">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+            <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(84, 84, 84);
 border-radius: 10px;
 padding: 5px;
-color: rgb(0, 85, 0);
+color: rgb(84, 84, 84);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(84, 84, 84);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
 </string>
            </property>
            <property name="text">
@@ -315,11 +407,24 @@ color: rgb(0, 85, 0);
          <item>
           <widget class="QPushButton" name="deleteAccountButton">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+            <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(200, 0, 0);
 border-radius: 10px;
 padding: 5px;
-color: rgb(0, 85, 0);</string>
+color: rgb(200, 0, 0);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
            </property>
            <property name="text">
             <string>Delete Account</string>
@@ -406,11 +511,24 @@ background: transparent;</string>
          <item>
           <widget class="QPushButton" name="Cancel">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
+            <string notr="true">QPushButton {
+background: transparent;
+border: 1px solid rgb(84, 84, 84);
 border-radius: 10px;
 padding: 5px;
-color: rgb(0, 85, 0);</string>
+color: rgb(84, 84, 84);
+font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(84, 84, 84);
+	border:1px solid rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
            </property>
            <property name="text">
             <string>Cancel</string>
@@ -420,11 +538,24 @@ color: rgb(0, 85, 0);</string>
          <item>
           <widget class="QPushButton" name="OK">
            <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/background/images/witeBackground.png);
-border: 1px solid rgb(0, 85, 0);
-border-radius: 10px;
-padding: 5px;
-color: rgb(0, 85, 0);</string>
+            <string notr="true">QPushButton {
+	background: transparent;
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(0, 85, 0);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+
+QPushButton:hover {
+	background-color: rgb(0, 85, 0);
+	border:1px solid rgb(0, 85, 0);
+	border-radius: 10px;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font: 700 9pt &quot;Segoe UI&quot;;
+}
+</string>
            </property>
            <property name="text">
             <string>OK</string>
@@ -438,17 +569,6 @@ color: rgb(0, 85, 0);</string>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1400</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

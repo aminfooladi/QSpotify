@@ -59,7 +59,6 @@ void LoginWindow::on_loginButton_clicked()
 
             if (user.getRole() == Role::Artist)
             {
-                QMessageBox::information(this, "Success", "Welcome Artist!");
                 *page = AppPage::ArtistPanel ;
                 this->database->userAccount = user ;
                 emit loginSuccessful() ;
@@ -67,7 +66,6 @@ void LoginWindow::on_loginButton_clicked()
             }
             else
             {
-                QMessageBox::information(this, "Success", "Welcome Listener!");
                 *page = AppPage::ListenerPanel ;
                 this->database->userAccount = user ;
                 emit loginSuccessful() ;
