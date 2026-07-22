@@ -7,6 +7,7 @@
 #include <QSize>
 #include <QIcon>
 using namespace std;
+
 SongWindow::SongWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::SongWindow)
@@ -17,12 +18,12 @@ SongWindow::SongWindow(QWidget *parent)
     this->mediaPlayer->setAudioOutput(audioOutput) ;
 
     connect(mediaPlayer, &QMediaPlayer::positionChanged, this, [&]() {
-                ui->horizontalSlider->setValue(mediaPlayer->position());
-            });
+        ui->horizontalSlider->setValue(mediaPlayer->position());
+    });
 
     connect(mediaPlayer, &QMediaPlayer::durationChanged, this, [&]() {
-                ui->horizontalSlider->setMaximum(mediaPlayer->duration());
-            });
+        ui->horizontalSlider->setMaximum(mediaPlayer->duration());
+    });
 }
 
 SongWindow::~SongWindow()
@@ -51,10 +52,37 @@ void SongWindow::setPageInfo()
     if(songOp.has_value())
     {
         Song song = songOp.value();
-        ui->songArtistLabel->setText(database->accountRepo.search(song.getArtistId()).value().getFullName()) ;
+
+        optional<Account> artist = database->accountRepo.search(song.getArtistId());
+        if(artist.has_value())
+        {
+            ui->songArtistLabel->setText(artist.value().getFullName());
+        }
+        else
+        {
+            ui->songArtistLabel->setText("Unknown Artist");
+        }
+
         ui->songGenreLabel->setText(song.getGenre()) ;
         ui->songNameLabel->setText(song.getTitle());
-        ui->albumLabel->setText(database->albumRepo.search(song.getAlbumId()).value().getName());
+
+        if(song.getAlbumId() != 0)
+        {
+            optional<Album> album = database->albumRepo.search(song.getAlbumId());
+            if(album.has_value())
+            {
+                ui->albumLabel->setText(album.value().getName());
+            }
+            else
+            {
+                ui->albumLabel->setText("Unknown Album");
+            }
+        }
+        else
+        {
+            ui->albumLabel->setText("Single");
+        }
+
         ui->songYearLabel->setText(QString::number(song.getReleaseYear()));
 
         QString coverPath = song.getCover();
@@ -72,7 +100,6 @@ void SongWindow::setPageInfo()
         ui->coverLabel->setPixmap(pixmap.scaled( ui->coverLabel->size()));
 
         QString audioFile = song.getFileAddress();
-        //QString audioFile = "C:/Users/vihan-rayaneh/Downloads/6936b1d7d23a7-roya-moein(320).mp3" ;
         if (QFile::exists(audioFile))
         {
             QPixmap pixmap(":/songs/images/StopSongIcon.png");
@@ -114,14 +141,12 @@ void SongWindow::setPageInfo()
         ui->likePushButton->setFixedSize(QSize(35,35));
         ui->likePushButton->setIconSize(QSize(35,35));
     }
-
 }
 
 void SongWindow::on_horizontalSlider_sliderMoved(int position)
 {
     this->mediaPlayer->setPosition(position) ;
 }
-
 
 void SongWindow::on_playOrStoppushButton_clicked()
 {
@@ -145,7 +170,6 @@ void SongWindow::on_playOrStoppushButton_clicked()
     }
 }
 
-
 void SongWindow::on_lastSongPushButton_clicked()
 {
     int newPosition = mediaPlayer->position() - 10000;
@@ -163,7 +187,6 @@ void SongWindow::on_nexSongPushButton_clicked()
     ui->horizontalSlider->setValue(newPosition);
 }
 
-
 void SongWindow::on_pushButton_clicked()
 {
     mediaPlayer->pause();
@@ -171,14 +194,12 @@ void SongWindow::on_pushButton_clicked()
     this->close();
 }
 
-
 void SongWindow::on_pushButton_2_clicked()
 {
     mediaPlayer->pause();
     emit gotoEditSong(this->songID);
     this->close();
 }
-
 
 void SongWindow::on_likePushButton_clicked()
 {
@@ -219,4 +240,3 @@ void SongWindow::on_likePushButton_clicked()
     this->database->userAccount.setLikedSongIDs(likedSongIDs);
     database->saveAll();
 }
-
