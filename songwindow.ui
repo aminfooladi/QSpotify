@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Song Window</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(:/images/background/images/background .png);</string>
