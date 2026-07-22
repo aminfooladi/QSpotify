@@ -2,6 +2,7 @@
 #include "ui_loginwindow.h"
 
 #include <QMessageBox>
+#include <stdexcept>
 
 LoginWindow::LoginWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,65 +28,63 @@ void LoginWindow::setPtrToPage(AppPage *page)
 
 void LoginWindow::on_loginButton_clicked()
 {
-    QString userName = ui->usernameLineEdit->text() ;
-    QString password = ui->passwordLineEdit->text() ;
-
-    if (userName.isEmpty() && password.isEmpty())
+    try
     {
-        ui->errorLabel->setText("Please enter username and password!");
-        return;
-    }
+        QString userName = ui->usernameLineEdit->text() ;
+        QString password = ui->passwordLineEdit->text() ;
 
-    if (userName.isEmpty())
-    {
-        ui->errorLabel->setText("Please enter username!");
-        return;
-    }
-
-    if (password.isEmpty())
-    {
-        ui->errorLabel->setText("Please enter password!");
-        return;
-    }
-
-    std::optional<Account> result = database->accountRepo.searchByUserName(userName) ;
-
-    if(result)
-    {
-        Account user = result.value() ;
-        if(password==user.getPassword())
+        if (userName.isEmpty() && password.isEmpty())
         {
-            ui->errorLabel->setText("");
+            throw std::runtime_error("Please enter username and password!");
+        }
 
-            if (user.getRole() == Role::Artist)
-            {
-                *page = AppPage::ArtistPanel ;
-                this->database->userAccount = user ;
-                emit loginSuccessful() ;
-                this->close();
-            }
-            else
-            {
-                *page = AppPage::ListenerPanel ;
-                this->database->userAccount = user ;
-                emit loginSuccessful() ;
-                this->close();
-            }
-            return;
+        if (userName.isEmpty())
+        {
+            throw std::runtime_error("Please enter username!");
+        }
+
+        if (password.isEmpty())
+        {
+            throw std::runtime_error("Please enter password!");
+        }
+
+        std::optional<Account> result = database->accountRepo.searchByUserName(userName) ;
+
+        if(!result.has_value())
+        {
+            throw std::runtime_error("User not found!");
+        }
+
+        Account user = result.value() ;
+
+        if(password != user.getPassword())
+        {
+            throw std::runtime_error("Wrong password!");
+        }
+
+        ui->errorLabel->setText("");
+
+        if (user.getRole() == Role::Artist)
+        {
+            *page = AppPage::ArtistPanel ;
+            this->database->userAccount = user ;
+            emit loginSuccessful() ;
+            this->close();
         }
         else
         {
-            ui->errorLabel->setText("Wrong password!");
-            return;
+            *page = AppPage::ListenerPanel ;
+            this->database->userAccount = user ;
+            emit loginSuccessful() ;
+            this->close();
         }
     }
-    else
+    catch (const std::runtime_error& e)
     {
-        ui->errorLabel->setText("User not found!");
-        ui->usernameLineEdit->setText("") ;
-        ui->passwordLineEdit->setText("") ;
+        ui->errorLabel->setText(e.what());
+        ui->usernameLineEdit->setText("");
+        ui->passwordLineEdit->setText("");
     }
-
 }
 
 
@@ -95,4 +94,3 @@ void LoginWindow::on_registerButton_clicked()
     emit goToRegisterPage() ;
     this->close();
 }
-
