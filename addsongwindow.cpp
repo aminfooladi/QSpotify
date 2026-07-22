@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QDir>
 #include <QCoreApplication>
+#include <stdexcept>
 
 using namespace std;
 
@@ -121,51 +122,52 @@ void AddSongWindow::on_selectImageButton_clicked()
 
 void AddSongWindow::on_saveButton_clicked()
 {
-    QString title = ui->titleLineEdit->text().trimmed();
-    if (title.isEmpty())
+    try
     {
-        ui->erorLabel->setText("Please enter song title!");
-        return;
+        QString title = ui->titleLineEdit->text().trimmed();
+        if (title.isEmpty())
+        {
+            throw std::runtime_error("Please enter song title!");
+        }
+
+        if(this->database->songRepo.serchSongByName(title))
+        {
+            throw std::runtime_error("A song with this title already exists!");
+        }
+
+        QString fileAddress = newSong.getFileAddress();
+        if (fileAddress.isEmpty() || fileAddress == "No file selected")
+        {
+            throw std::runtime_error("Please select an audio file!");
+        }
+
+        if(this->database->songRepo.serchSongByFileAddress(fileAddress))
+        {
+            throw std::runtime_error("A song with this address already exists!");
+        }
+
+        newSong.setTitle(title);
+        newSong.setReleaseYear(ui->yearSpinBox->value());
+        newSong.setGenre(ui->genreLineEdit->text().trimmed());
+        newSong.setArtistId(database->userAccount.getId());
+        newSong.setAlbumId(this->albumId);
+
+        int songId = database->songRepo.save(newSong);
+
+        if (songId > 0)
+        {
+            database->saveAll();
+            emit goBack(this->albumId);
+            this->close();
+        }
+        else
+        {
+            throw std::runtime_error("Failed to save song!");
+        }
     }
-
-    if(this->database->songRepo.serchSongByName(title))
+    catch (const std::runtime_error& e)
     {
-        ui->erorLabel->setText("A song with this title already exists!");
-        return ;
-    }
-
-
-    QString fileAddress = newSong.getFileAddress();
-    if (fileAddress.isEmpty() || fileAddress == "No file selected")
-    {
-        ui->erorLabel->setText("Please select an audio file!");
-        return;
-    }
-
-    if(this->database->songRepo.serchSongByFileAddress(fileAddress))
-    {
-        ui->erorLabel->setText("A song with this address already exists!");
-        return ;
-    }
-
-    newSong.setTitle(title);
-    newSong.setReleaseYear(ui->yearSpinBox->value());
-    newSong.setGenre(ui->genreLineEdit->text().trimmed());
-    newSong.setArtistId(database->userAccount.getId());
-    newSong.setAlbumId(this->albumId);
-
-    int songId = database->songRepo.save(newSong);
-
-    if (songId > 0)
-    {
-        database->saveAll();
-
-        emit goBack(this->albumId);
-        this->close();
-    }
-    else
-    {
-        ui->erorLabel->setText("Failed to save song!");
+        ui->erorLabel->setText(e.what());
     }
 }
 

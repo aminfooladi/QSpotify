@@ -2,6 +2,7 @@
 #include "ui_addplaylistwindow.h"
 
 #include <QMessageBox>
+#include <stdexcept>
 
 using namespace std;
 
@@ -137,13 +138,12 @@ void AddPlaylistWindow::loadSongsTable()
         QPushButton* removeBtn = new QPushButton("✕ Remove");
         removeBtn->setFixedSize(60, 20);
         removeBtn->setStyleSheet(
-                "background: transparent;"
-                "border: 1px solid rgb(181, 0, 3);"
-                "border-radius: 10px;"
-                "color: rgb(181, 0, 3);");
+            "background: transparent;"
+            "border: 1px solid rgb(181, 0, 3);"
+            "border-radius: 10px;"
+            "color: rgb(181, 0, 3);");
 
-        connect(removeBtn, &QPushButton::clicked, this, [this, i]()
-                {
+        connect(removeBtn, &QPushButton::clicked, this, [this, i](){
                     onRemoveSong(i);
                 });
 
@@ -158,36 +158,46 @@ void AddPlaylistWindow::onRemoveSong(int row)
 
 void AddPlaylistWindow::on_saveButton_clicked()
 {
-    QString name = ui->nameLineEdit->text().trimmed();
-
-    if (name.isEmpty())
+    try
     {
-        ui->errorLabel->setText("Please enter playlist name!");
-        return;
+        QString name = ui->nameLineEdit->text().trimmed();
+
+        if (name.isEmpty())
+        {
+            throw std::runtime_error("Please enter playlist name!");
+        }
+
+        if (database->playlistRepo.searchByName(name))
+        {
+            throw std::runtime_error("A playlist with this name already exists!");
+        }
+
+        if (selectedSongIds.empty())
+        {
+            throw std::runtime_error("Please add at least one song!");
+        }
+
+        newPlaylist.setName(name);
+        newPlaylist.setListenerId(database->userAccount.getId());
+        newPlaylist.setSongIDs(selectedSongIds);
+
+        int result = database->playlistRepo.save(newPlaylist);
+
+        if (result > 0)
+        {
+            database->saveAll();
+            ui->errorLabel->setText("");
+            emit goBack();
+            this->close();
+        }
+        else
+        {
+            throw std::runtime_error("Failed to save playlist!");
+        }
     }
-
-    if (selectedSongIds.empty())
+    catch (const std::runtime_error& e)
     {
-        ui->errorLabel->setText("Please add at least one song!");
-        return;
-    }
-
-    newPlaylist.setName(name);
-    newPlaylist.setListenerId(database->userAccount.getId());
-    newPlaylist.setSongIDs(selectedSongIds);
-
-    int result = database->playlistRepo.save(newPlaylist);
-
-    if (result > 0)
-    {
-        database->saveAll();
-        ui->errorLabel->setText("");
-        emit goBack();
-        this->close();
-    }
-    else
-    {
-        ui->errorLabel->setText("Failed to save playlist!");
+        ui->errorLabel->setText(e.what());
     }
 }
 

@@ -7,6 +7,7 @@
 #include <QSize>
 #include <QCoreApplication>
 #include <QDir>
+#include <stdexcept>
 
 EditSongWindow::EditSongWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -125,33 +126,42 @@ void EditSongWindow::on_selectCoverButton_clicked()
 
 void EditSongWindow::on_saveButton_clicked()
 {
-    if(database->userAccount.getId() != database->songRepo.search(this->songId).value().getArtistId())
+    try
     {
-        ui->errorLabel->setText("You can not edit this song !!");
-        return;
+        if(database->userAccount.getId() != database->songRepo.search(this->songId).value().getArtistId())
+        {
+            throw std::runtime_error("You can not edit this song!");
+        }
+
+        QString newTitle = ui->titleLineEdit->text().trimmed();
+        if (newTitle.isEmpty())
+        {
+            throw std::runtime_error("Please enter song title!");
+        }
+
+        if (newTitle != editingSong.getTitle())
+        {
+            int existingId = database->songRepo.serchSongByName(newTitle);
+            if (existingId && existingId != this->songId)
+            {
+                throw std::runtime_error("A song with this title already exists!");
+            }
+        }
+
+        editingSong.setTitle(newTitle);
+        editingSong.setReleaseYear(ui->yearSpinBox->value());
+        editingSong.setGenre(ui->genreLineEdit->text().trimmed());
+
+        this->database->songRepo.save(this->editingSong);
+        database->saveAll();
+
+        emit goBack(this->albumId, this->songId);
+        this->close();
     }
-    QString newTitle = ui->titleLineEdit->text().trimmed();
-    if (newTitle.isEmpty())
+    catch (const std::runtime_error& e)
     {
-        ui->errorLabel->setText("Please enter song title!");
-        return;
+        ui->errorLabel->setText(e.what());
     }
-
-    if(database->songRepo.serchSongByName(newTitle))
-    {
-        ui->errorLabel->setText("A song with this title already exists!");
-        return;
-    }
-
-    editingSong.setTitle(newTitle);
-    editingSong.setReleaseYear(ui->yearSpinBox->value());
-    editingSong.setGenre(ui->genreLineEdit->text().trimmed());
-
-    this->database->songRepo.save(this->editingSong);
-    database->saveAll();
-
-    emit goBack(this->albumId, this->songId);
-    this->close();
 }
 
 void EditSongWindow::on_cancelButton_clicked()

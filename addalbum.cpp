@@ -3,6 +3,7 @@
 
 
 #include <QFileDialog>
+#include <stdexcept>
 using namespace std;
 
 AddAlbum::AddAlbum(QWidget *parent)
@@ -70,20 +71,36 @@ void AddAlbum::on_selectFileButton_clicked()
 
 void AddAlbum::on_savePushButton_clicked()
 {
-    QString albumName = ui->lineEdit->text();
-    if(albumName == "")
+    try
     {
-        ui->erorLabel->setText("Please enter album name!");
-        return ;
-    }
-    this->newAlbum.setName(albumName) ;
-    newAlbum.setArtistId(database->userAccount.getId());
+        QString albumName = ui->lineEdit->text();
+        if(albumName == "")
+        {
+            throw std::runtime_error("Please enter album name!");
+        }
 
-    if (database->albumRepo.save(this->newAlbum))
+        if(database->albumRepo.searchByName(albumName))
+        {
+            throw std::runtime_error("An album with this name already exists!");
+        }
+
+        this->newAlbum.setName(albumName) ;
+        newAlbum.setArtistId(database->userAccount.getId());
+
+        if (database->albumRepo.save(this->newAlbum))
+        {
+            database->saveAll();
+            emit goToArtistPanel();
+            this->close();
+        }
+        else
+        {
+            throw std::runtime_error("Failed to save album!");
+        }
+    }
+    catch (const std::runtime_error& e)
     {
-        database->saveAll();
-        emit goToArtistPanel();
-        this->close();
+        ui->erorLabel->setText(e.what());
     }
 }
 
@@ -93,4 +110,3 @@ void AddAlbum::on_cancelPushButton_clicked()
     emit goToArtistPanel();
     this->close();
 }
-

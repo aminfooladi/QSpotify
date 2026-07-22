@@ -5,6 +5,8 @@
 #include <QFileInfo>
 #include <QFile>
 #include <QSize>
+#include <stdexcept>
+
 EditAlbumWindow::EditAlbumWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::EditAlbumWindow)
@@ -94,28 +96,38 @@ void EditAlbumWindow::on_selectCoverButton_clicked()
 
 void EditAlbumWindow::on_saveButton_clicked()
 {
-    if(database->userAccount.getId() != database->albumRepo.search(this->albumId).value().getArtistId())
+    try
     {
-        ui->errorLabel->setText("You can not edit this album !!");
-        return;
+        if(database->userAccount.getId() != database->albumRepo.search(this->albumId).value().getArtistId())
+        {
+            throw std::runtime_error("You can not edit this album!");
+        }
+
+        QString newName = ui->nameLineEdit->text().trimmed();
+        if (newName.isEmpty())
+        {
+            throw std::runtime_error("Please enter album name!");
+        }
+
+        if (newName != editingAlbum.getName())
+        {
+            int existingId = database->albumRepo.searchByName(newName);
+            if (existingId && existingId != this->albumId)
+            {
+                throw std::runtime_error("An album with this name already exists!");
+            }
+        }
+
+        editingAlbum.setName(newName);
+        this->database->albumRepo.save(this->editingAlbum);
+        database->saveAll();
+        emit albumUpdated(this->albumId);
+        this->close();
     }
-    QString newName = ui->nameLineEdit->text().trimmed();
-    if (newName.isEmpty())
+    catch (const std::runtime_error& e)
     {
-        ui->errorLabel->setText("Please enter album name!");
-        return;
+        ui->errorLabel->setText(e.what());
     }
-    if(database->albumRepo.searchByName(newName))
-    {
-        ui->errorLabel->setText("An album with this name already exists!");
-        return;
-    }
-    editingAlbum.setName(newName);
-    this->database->albumRepo.save(this->editingAlbum);
-    database->saveAll();
-    emit albumUpdated(this->albumId);
-    this->close();
-    return ;
 }
 
 
@@ -123,23 +135,28 @@ void EditAlbumWindow::on_cancelButton_clicked()
 {
     emit goBack(this->albumId);
     this->close();
-    return ;
 }
 
 
 void EditAlbumWindow::on_deleteAlbumPushButton_clicked()
 {
-    std::vector<Song> songs = database->songRepo.getByAlbum(this->albumId);
-
-    for (int i = 0; i < songs.size(); i++)
+    try
     {
-        database->songRepo.remove(songs[i].getId());
+        std::vector<Song> songs = database->songRepo.getByAlbum(this->albumId);
+
+        for (int i = 0; i < songs.size(); i++)
+        {
+            database->songRepo.remove(songs[i].getId());
+        }
+
+        this->database->albumRepo.remove(this->albumId);
+        database->saveAll();
+
+        emit goToPanel();
+        this->close();
     }
-
-    this->database->albumRepo.remove(this->albumId);
-    database->saveAll();
-
-    emit goToPanel();
-    this->close();
+    catch (const std::runtime_error& e)
+    {
+        ui->errorLabel->setText(e.what());
+    }
 }
-

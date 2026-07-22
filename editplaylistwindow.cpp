@@ -2,6 +2,7 @@
 #include "ui_editplaylistwindow.h"
 
 #include <QMessageBox>
+#include <stdexcept>
 
 using namespace std;
 
@@ -171,36 +172,49 @@ void EditPlaylistWindow::onRemoveSong(int row)
 
 void EditPlaylistWindow::on_saveButton_clicked()
 {
-    QString name = ui->nameLineEdit->text().trimmed();
-
-    if (name.isEmpty())
+    try
     {
-        ui->errorLabel->setText("Please enter playlist name!");
-        return;
+        QString name = ui->nameLineEdit->text().trimmed();
+
+        if (name.isEmpty())
+        {
+            throw std::runtime_error("Please enter playlist name!");
+        }
+
+        if (name != editingPlaylist.getName())
+        {
+            int existingId = database->playlistRepo.searchByName(name);
+            if (existingId && existingId != this->playlistId)
+            {
+                throw std::runtime_error("A playlist with this name already exists!");
+            }
+        }
+
+        if (selectedSongIds.empty())
+        {
+            throw std::runtime_error("Please add at least one song!");
+        }
+
+        editingPlaylist.setName(name);
+        editingPlaylist.setSongIDs(selectedSongIds);
+
+        int result = database->playlistRepo.save(editingPlaylist);
+
+        if (result > 0)
+        {
+            database->saveAll();
+            ui->errorLabel->setText("");
+            emit goBack(this->playlistId);
+            this->close();
+        }
+        else
+        {
+            throw std::runtime_error("Failed to update playlist!");
+        }
     }
-
-    if (selectedSongIds.empty())
+    catch (const std::runtime_error& e)
     {
-        ui->errorLabel->setText("Please add at least one song!");
-        return;
-    }
-
-    editingPlaylist.setName(name);
-    editingPlaylist.setSongIDs(selectedSongIds);
-
-    int result = database->playlistRepo.save(editingPlaylist);
-
-    if (result > 0)
-    {
-        database->saveAll();
-        ui->errorLabel->setText("");
-
-        emit goBack(this->playlistId);
-        this->close();
-    }
-    else
-    {
-        ui->errorLabel->setText("Failed to update playlist!");
+        ui->errorLabel->setText(e.what());
     }
 }
 
@@ -209,10 +223,18 @@ void EditPlaylistWindow::on_cancelButton_clicked()
     emit goBack(this->playlistId);
     this->close();
 }
+
 void EditPlaylistWindow::on_pushButton_clicked()
 {
-    this->database->playlistRepo.remove(this->playlistId);
-    emit goToPanel() ;
-    this->close();
+    try
+    {
+        this->database->playlistRepo.remove(this->playlistId);
+        database->saveAll();
+        emit goToPanel() ;
+        this->close();
+    }
+    catch (const std::runtime_error& e)
+    {
+        ui->errorLabel->setText(e.what());
+    }
 }
-
